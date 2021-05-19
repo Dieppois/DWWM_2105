@@ -1,0 +1,29 @@
+public class TEST {
+	public static void main(String[] args) {
+
+
+
+switch ("Orange") {
+  case "Oranges":
+    System.out.println("Oranges : 0.59 € le kilo.");
+    break;
+  case "Pommes":
+	  System.out.println("Pommes : 0.32 € le kilo.");
+    break;
+  case "Bananes":
+	  System.out.println("Bananes : 0.48 € le kilo.");
+    break;
+  case "Cerises":
+	  System.out.println("Cerises : 3.00 € le kilo.");
+    break;
+  case "Mangues":
+  case "Papayes":
+	  System.out.println("Mangues et papayes : 2.79 € le kilo.");
+    break;
+  default:
+	  System.out.println("Désolé, nous n'avons plus de " + "Orange" + ".");
+}
+
+System.out.println("Autre chose ?");
+}
+}

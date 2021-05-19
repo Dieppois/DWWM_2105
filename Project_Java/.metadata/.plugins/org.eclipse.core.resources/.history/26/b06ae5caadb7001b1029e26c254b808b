@@ -1,0 +1,57 @@
+/*Exercice 2.3 : Jeu de la fourchette 
+L'ordinateur « choisit » un nombre entier compris entre 0 et 100. Le joueur essaie de le deviner. 
+Lors de chaque essai, l'ordinateur affiche la « fourchette » dans laquelle se trouve le nombre qu'il a choisi. 
+Le choix du nombre par l'ordinateur sera simulé par génération d'un nombre aléatoire : N <-- RANDOM(0,100)
+*/
+
+import java.util.Random;
+import java.util.Scanner;
+public class E_2_3 {
+public static void main(String[] args) {
+	
+	
+	
+	Scanner sc = new Scanner(System.in);
+	
+	int min = 0;
+	int max = 101;
+
+	Random random = new Random();
+
+	int value = random.nextInt(max + min) + min;
+	System.out.println(value);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+}
