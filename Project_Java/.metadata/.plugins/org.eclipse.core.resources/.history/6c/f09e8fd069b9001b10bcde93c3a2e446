@@ -9,16 +9,13 @@ public class E_1_4 {
 public static void main(String[] args) {
 	
 	Scanner sc = new Scanner (System.in);
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	/*int[] tableau = { a, b };*/
+	System.out.println( b + a );
 	
-	TEST GIT HUB
+	
 	sc.close();	
 }
 
 }
-
-
-
-/*int a = sc.nextInt();
-int b = sc.nextInt();
-/*int[] tableau = { a, b };
-System.out.println( b +" "+ a ); */

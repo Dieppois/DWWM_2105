@@ -11,8 +11,7 @@ public class TEST
     {
      r = r * 10;
       r = r + nbr%10;
-      nbr = nbr/10;
-      System.out.print(r);
+      /*nbr = nbr/10;*/
     }
     System.out.println("L'inverse du nombre est " + r);
     sc.close();
