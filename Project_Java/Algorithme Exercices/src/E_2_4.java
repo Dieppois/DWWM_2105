@@ -10,9 +10,11 @@ import java.util.Scanner;
 public class E_2_4 {
 public static void main(String[] args) {
 
+	System.out.println("Entrez le solde" );
 	Scanner sc = new Scanner (System.in);
 	double s= sc.nextDouble();
 	int magasin=0;
+	
 	
 	do {
 		
@@ -28,6 +30,7 @@ public static void main(String[] args) {
 	
 	magasin++;
 	
+	System.out.println(" " );
 	System.out.println("Barnabé est allé dans " + magasin + " magasins." );
 	
 	sc.close();

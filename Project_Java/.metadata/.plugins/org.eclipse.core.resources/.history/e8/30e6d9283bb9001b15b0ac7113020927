@@ -1,0 +1,24 @@
+/*
+Exercice 1.4 : Inversion de 2 valeurs 
+Lire 2 nombres a et b. 
+Mettre le contenu de a dans b et celui de b dans a
+ */
+
+import java.util.Scanner;
+public class E_1_4 {
+public static void main(String[] args) {
+	
+	Scanner sc = new Scanner (System.in);
+	int a;
+	int[] tableau = { 0, 0, 0, 0, 0, 0, 0 };
+	System.out.println("Tableau");
+	a = sc.nextInt();
+	tableau = new int [a];
+	
+	
+	
+	
+	
+	
+}
+}

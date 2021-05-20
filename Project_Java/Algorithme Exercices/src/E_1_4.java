@@ -6,31 +6,31 @@ Mettre le contenu de a dans b et celui de b dans a
 
 import java.util.Scanner;
 public class E_1_4 {
-	public static void main(String[] args) {
-		String Reponse1;
-		int[] array ={1, 2};
-
-		//afficher les entiers du tableau
-		for(int i = 0; i < array.length; i++)
-		{
-			System.out.println(array[i]);
-		}
-		//inverser les éléments du tableau
-		for(int i = 0; i < array.length / 2; i++)
-		{
-			int temp = array[i];
-			array[i] = array[array.length - i - 1];
-			array[array.length - i - 1] = temp;
-		}
-		//afficher les entiers du tableau inversé
-		System.out.println("tableau inversé");
-		for(int i = 0; i < array.length; i++)
-		{
-			System.out.println(array[i]);
-		}System.out.println("La bicylette fonctionne ?");
-		Reponse1 = a.nextLine().toLowerCase();
-	}if (Reponse1.equals("oui")) {
+public static void main(String[] args) {
+	
+	Scanner sc = new Scanner (System.in);
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	int[] tableau = { a, b };
+	System.out.println( "Size == " + tableau.length );
+	
+	for ( int i=0; i<tableau.length; i++ ) {
+	    System.out.println( tableau[ i ] );
 	}
-}
+	
+	System.out.println("Tableau");
+	
+	
+	
+	
+	
+	a = sc.nextInt();
+	tableau = new int [a];
+	
+	
+	
+	
+	
+	
 }
 }

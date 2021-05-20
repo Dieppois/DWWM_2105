@@ -98,13 +98,4 @@ sc.close();
 	 return nbarrondis;
 		
 	}
-
-
-
-}
-
-private static double a(double d) {
-	return 0;
-
-
 }
