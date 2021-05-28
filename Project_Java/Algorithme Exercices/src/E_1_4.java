@@ -9,8 +9,15 @@ public class E_1_4 {
 public static void main(String[] args) {
 	
 	Scanner sc = new Scanner (System.in);
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	int [] myArray3 = { a, b };
 	
-	TEST GIT HUB
+	for (int i = 0; i < myArray3.length; i++) {
+	
+	}
+	
+	System.out.println( b +""+ a );
 	sc.close();	
 }
 

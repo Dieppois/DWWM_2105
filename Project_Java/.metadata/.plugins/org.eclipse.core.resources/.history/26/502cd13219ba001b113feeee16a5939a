@@ -1,0 +1,38 @@
+ /*  int nbr, r = 0;
+    System.out.print("Entrez un nombre à inverser : ");
+    Scanner sc = new Scanner(System.in);
+    nbr = sc.nextInt();
+   while(nbr != 0)
+    {
+     r = r * 10;
+      r = r + nbr%10;
+      nbr = nbr/10;
+      System.out.print(r);
+    }
+    System.out.println("L'inverse du nombre est " + r);
+    sc.close();*/
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class TEST {
+  public static void main(String args[])
+  {
+	  	Scanner sc = new Scanner (System.in);
+		
+	  	int [] array ;
+		
+		for (int entier : array) {
+		      System.out.println("nombre: " + entier);
+		   }
+		
+		Arrays.sort(array);
+		
+		System.out.println(" ");
+		System.out.println("Tableau trié\n");
+		   for (int entier : array) {
+		      System.out.println("nombre: " + entier);
+		
+ 
+  }
+}
+}

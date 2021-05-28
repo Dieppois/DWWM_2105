@@ -87,13 +87,15 @@ public class E_2_2 {
 
 
 		System.out.println("programme terminé!");
-sc.close();
+		sc.close();
 
 	}
 	
-	public static double nombreArrondi( double nb)
+	public static double nombreArrondi( double nb, int chiffrevirgule)
 	{
-	 double nbarrondis=nb;
+	 
+		double temp = nb*Math.pow(10, chiffrevirgule);
+		double nbarrondis = Math.round(temp)/Math.pow(10, chiffrevirgule);
 	 
 	 return nbarrondis;
 		

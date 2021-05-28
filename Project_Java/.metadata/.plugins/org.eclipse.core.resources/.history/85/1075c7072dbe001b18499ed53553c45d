@@ -1,0 +1,87 @@
+/*Exercice 3.3 : Dénombrer les lettres de l'alphabet dans un tableau 
+Lire un texte d'au moins 120 caractères (à contrôler). 
+Compter et afficher le nombre d'occurrences (d'apparitions) de chacune des lettres de l'alphabet*/
+
+import java.util.*;
+public class E_3_3 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner (System.in);
+		
+		String phrase = "";
+		char [] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		int compteur = 0;
+		
+		
+		System.out.println("Ecris une phrase");
+		phrase = sc.nextLine();
+		
+		
+		for (int i = 0; i < alphabet.length; i++) {
+			for (int j = 0; j < phrase.length(); j++) {
+				if (phrase.indexOf(j) == alphabet [i] ) 
+				compteur++;
+				System.out.println("La lettre : "+alphabet [i] +"apparait "+compteur +" fois.");
+				
+				
+				}
+		}
+	}
+}
+}
+			
+		/*}for (int j = 0; j < phrase.length(); j++) {
+		}
+		phrase[j] = 
+			if (phrase[j] == alphabet [i] ) 
+			{
+				compteur++;
+				System.out.println(alphabet[i]+compteur);
+			
+				
+				
+				
+				
+				
+				phrase.contains(alphabet[i]);
+			compteur = 0;
+			if (true) {
+				lettre2 = phrase.charAt(i);
+				compteur++;
+				System.out.println("la lettre : "+lettre2 +" apparait : " +compteur);
+			}
+			
+			sc.close();
+			
+		}
+		}
+}for (int j = 0; j < monTableau.length(); j++) {
+				j = char a;
+				if (monTableau[j] == alphabet [i] ) {
+					compteur++;
+					System.out.println(alphabet[i]+compteur);
+			}
+				
+		}
+		
+//phrase.replace(phrase, phrase)
+		
+		/*System.out.println("Voici le tableau :");
+		
+		for (int i == alphabet) {
+		}
+		System.out.print(i + " ");*/
+	/*	
+hrase = Phrase.replace(" ", String.valueOf());
+Phrase = Phrase.replace("è", "e");
+Phrase = Phrase.replace("é", "e");
+Phrase = Phrase.replace("ê", "e");
+Phrase = Phrase.replace("ë", "e");
+Phrase = Phrase.replace("à", "a");
+Phrase = Phrase.replace("ù", "u");
+Phrase = Phrase.replace("î", "i");
+Phrase = Phrase.replace("ô", "o");*/
+		
+		
+*/
