@@ -11,12 +11,12 @@ public class E_3_3 {
 
 		String phrase = "";
 		char [] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-		int compteur = 0;
+
 
 		System.out.println("Ecris une phrase");
 		phrase = sc.nextLine();
 
-		phrase = phrase.replace(" ", String.valueOf(0));
+		phrase = phrase.replaceAll(" ", "");
 		phrase = phrase.replace("è", "e");
 		phrase = phrase.replace("é", "e");
 		phrase = phrase.replace("ê", "e");
@@ -26,25 +26,35 @@ public class E_3_3 {
 		phrase = phrase.replace("î", "i");
 		phrase = phrase.replace("ô", "o");
 
-
-		for (int i = 0; i < alphabet.length; i++) {
-			char a = alphabet [i];
-
-			for (int j = 0; j < phrase.length(); j++) {
-				char b = phrase.charAt(j);
+		if (phrase.length() >121) {
+		letterFinder (alphabet, phrase);
+		} else System.out.println("La phrase est de moins de 120 char");
+		sc.close();
+	}
+	static String letterFinder (char _tab [], String _phrase ) {
+		int compteur = 0;
+		
+		for (int i = 0; i < _tab.length; i++) {
+			char a = _tab [i];
+			
+			for (int j = 0; j < _phrase.length(); j++) {
+				char b = _phrase.charAt(j);
 
 				if (b == a )
 				{ 
 					compteur++;
 				}
-				if (j == phrase.length()-1 && compteur > 0) 
+				if (j == _phrase.length()-1 && compteur > 0) 
 				{
-					System.out.println("La lettre : "+alphabet [i] +" apparait "+compteur +" fois.");}
-				}
+					System.out.println("La lettre : "+_tab [i] +" apparait "+compteur +" fois.");}
+			}
 
 			compteur =0;
 		}
-		sc.close();
+		return "";
+		
+	
 	}
 }
+
 

@@ -46,7 +46,7 @@ public class E_1_6_1 {
 	}
 
 
-	public static long [] rechercheDiviseur (long _unNombre )
+	static long rechercheDiviseur (long _unNombre )
 	{
 		long [] mesDiviseurs= new long[100];
 		int compteurCase=0;
@@ -69,10 +69,9 @@ public class E_1_6_1 {
 
 
 
-Scanner sc =new Scanner (System.in);
 
-System.out.println("w/e");
 
+/*
 rechercheDiviseur (long _unNombre )
 
 long nbtest=sc.nextLong();
@@ -89,8 +88,7 @@ for (int i = 0; i < diviseurs.length; i++)
 	System.out.println(diviseurs[i]);
 	
 	
-}
-}	
+}*/
 }	
 	
 	
