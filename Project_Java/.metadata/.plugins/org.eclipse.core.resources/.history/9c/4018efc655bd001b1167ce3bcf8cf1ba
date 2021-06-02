@@ -1,0 +1,101 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class E_2_5_2_ {
+
+	public static void main(String[] args) {
+
+		Integer nbMachine;
+		Integer nbUtilisateur;
+		int Diff;
+		int scoreUtilisateur;
+		int scoreBot;
+		//boolean continuer=true;
+		//String rep;
+		Scanner sc=new Scanner(System.in); 
+
+		Random aleas= new Random();
+
+		scoreBot=0;
+		scoreUtilisateur=0;
+		do {
+			System.out.println("Veuillez entrer un Nombre au choix entre 0-1-2, ou un nombre négatif pour arrêter la partie!");
+			nbUtilisateur=sc.nextInt();
+			sc.nextLine();
+			nbMachine=aleas.nextInt(3); 
+
+			if (nbMachine > 2 && nbMachine < 0 ) {
+			//if (nbUtilisateur != nulle) {
+
+				Diff=Math.abs(nbUtilisateur-nbMachine);
+
+				switch (Diff) {
+				case 2:
+					if (nbUtilisateur> nbMachine) 
+					{
+
+						scoreUtilisateur++;
+						System.out.println("bravo vous avez gagné un point  votre score est de " + scoreUtilisateur +" score Machine :" +scoreBot);
+
+
+					}else {
+						scoreBot++;
+						System.out.println("La machine gagne un point  son score est de " + scoreBot +" et votre est de :" +scoreUtilisateur) ;
+
+
+					}
+
+
+
+					break;
+				case 1:
+					if (nbUtilisateur< nbMachine) 
+					{
+
+						scoreUtilisateur++;
+						System.out.println("bravo vous avez gagné un point  votre score est de " + scoreUtilisateur +" score Machine :" +scoreBot);
+
+
+					}else {
+						scoreBot++;
+						System.out.println("La machine gagne un point  son score est de " + scoreBot +" et votre est de :" +scoreUtilisateur) ;
+
+
+					}
+
+
+
+
+					break;
+				case 0:
+					System.out.println(" Match nul, personne ne marque de point : Score utilisateur "+ scoreUtilisateur +" score machine :"+ scoreBot);
+
+
+
+					break;
+				default:
+					System.out.println(" valeur imprévue"); 
+
+					break;
+				}
+			
+			}
+		} while (scoreBot<10 && scoreUtilisateur<10 && nbUtilisateur==0 );
+
+		if (nbUtilisateur<0) {
+
+			System.out.println(" Vous avez arrêté le jeu! Le score de la machine est :" + scoreBot+" votre score est : " +scoreUtilisateur);
+
+		}
+		else if(scoreUtilisateur >=10)
+		{
+			System.out.println(" Bravo vous avez gagné! vous atteint 10 points, le score de la machine est :" + scoreBot);
+
+		}
+		else {
+			System.out.println(" Perdu ! Machine 10 points!  Essai encore!! Votre score était de :" + scoreUtilisateur);
+		}
+		sc.close();
+	}
+
+}

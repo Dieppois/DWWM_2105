@@ -1,0 +1,35 @@
+/*Exercice 1.7 : Tri de nombres 
+Lire 2 nombres a et b. Les écrire dans l'ordre croissant.
+Lire 3 nombres a, b et c. Les écrire dans l'ordre croissant.*/
+
+import java.util.*;
+public class E_1_7 {
+public static void main(String[] args) {
+
+	Scanner sc = new Scanner (System.in);
+	int a = sc.nextInt();
+	int b = sc.nextInt();
+	int c = sc.nextInt();
+	int [] array = {a , b, c};
+	
+	liste.add(0.5);
+	liste.add(0.2);
+	liste.add(0.9);
+	
+	Collections.sort(liste);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+}
