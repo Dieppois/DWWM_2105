@@ -10,9 +10,6 @@ humain introduit un nombre négatif qui indique sa volonté d'arrêter de jouer.
  */
 /*Math.abs(nbMachine)*/
 
-
-
-
 import java.util.*;
 import java.util.Scanner;
 public class E_2_5 {
@@ -21,24 +18,24 @@ public class E_2_5 {
 		Scanner sc = new Scanner (System.in);
 		Scanner sc2 = new Scanner (System.in);
 		Random aléa = new Random ();
-		
+
 		int score;
 		int score2;
 		score=0;
 		score2=0;
 		String rép="";
-		
+
 		do {
-		
+
 			System.out.println("Jeu de pierre feuille ciseau");
 			System.out.println(" " );
 
-		int nbUser;
+			int nbUser;
 
-		String choix = null;
-		String choix2 = null;
+			String choix = null;
+			String choix2 = null;
 
-		
+
 			System.out.println("Veuillez choisir un chiffre entier en 0 et 2");	
 			nbUser = sc.nextInt();
 			if (nbUser <=2) {
@@ -142,22 +139,22 @@ public class E_2_5 {
 				System.out.println(" " );
 				System.out.println ("Encore une partie?(O/N)" ); 
 				rép = sc2.nextLine();
-				
+
 			}
-			
-		else System.out.println ("Perdue" ); 
-		{
-			
-		//Fin de la boucle 
-	}	
-		
-}
+
+			else System.out.println ("Perdue" ); 
+			{
+
+				//Fin de la boucle 
+			}	
+
+		}
 		while(rép.equalsIgnoreCase("o")) ;
 		System.out.println("Fin " );
 		sc.close();
 		sc2.close();
-}
-	
+	}
+
 }
 
 

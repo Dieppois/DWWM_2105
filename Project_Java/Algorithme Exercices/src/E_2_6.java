@@ -11,7 +11,7 @@ municipale. Si le livre n'est pas disponible, j'emprunterai un roman policier. J
 maison.
 Dès que j'aurai le livre qui me convient, je m'installerai confortablement dans un fauteuil et je me plongerai dans la 
 lecture
-*/
+ */
 
 import java.util.Scanner;
 /*Import de fonctionnalité */
@@ -27,53 +27,52 @@ public class E_2_6 {
 
 		String Reponse1;
 
-		
+
 		System.out.println("Est-ce qu'il fait beau ?");
 		Reponse1 = a.nextLine().toLowerCase();
 		if (Reponse1.equals("oui")) {
-			
+
 			System.out.println("La bicylette fonctionne ?");
 			Reponse1 = a.nextLine().toLowerCase();
 			if (Reponse1.equals("oui")) {
-				
+
 				System.out.println("Aller faire une balade en bicyclette");
 			}else {
 				System.out.println("Aller chez le garagiste");
 				System.out.println("La réparation est immédiate ?");}
 			Reponse1 = a.nextLine().toLowerCase();
 			if (Reponse1.equals("oui")) {
-	
-					System.out.println("Aller faire une balade en bicyclette");
-				} else {
-					System.out.println("Aller à pied jusqu'a l'étang pour cueillir des joncs");
-				}
+
+				System.out.println("Aller faire une balade en bicyclette");
 			} else {
+				System.out.println("Aller à pied jusqu'a l'étang pour cueillir des joncs");
+			}
+		} else {
 			System.out.println("Est-ce que l'on possède le livre Game of Thrones ");
-				}			
+		}			
+		Reponse1 = a.nextLine().toLowerCase();
+		if (Reponse1.equals("oui")) {
+			System.out.println("Aller s'installer confortablement dans un fauteuil et se plonger dans la lecture");
+		} else {
+			System.out.println("Aller à la bibliothèque municipale");
+			System.out.println("Est-ce que Game of Thrones est dans la bibliothèque municipale?");
 			Reponse1 = a.nextLine().toLowerCase();
 			if (Reponse1.equals("oui")) {
+				System.out.println("Aller emprunter Game of Thrones");
+				System.out.println("Aller dans la maison");
 				System.out.println("Aller s'installer confortablement dans un fauteuil et se plonger dans la lecture");
 			} else {
-				System.out.println("Aller à la bibliothèque municipale");
-				System.out.println("Est-ce que Game of Thrones est dans la bibliothèque municipale?");
-				Reponse1 = a.nextLine().toLowerCase();
-	if (Reponse1.equals("oui")) {
-					System.out.println("Aller emprunter Game of Thrones");
-					System.out.println("Aller dans la maison");
-					System.out.println("Aller s'installer confortablement dans un fauteuil et se plonger dans la lecture");
-				} else {
-					System.out.println("Aller emprunter un roman policier");
-					System.out.println("Aller dans la maison");
-					System.out.println("Aller s'installer confortablement dans un fauteuil et se plonger dans la lecture");
-					
-					
-					}
-	a.close();
-				}
+				System.out.println("Aller emprunter un roman policier");
+				System.out.println("Aller dans la maison");
+				System.out.println("Aller s'installer confortablement dans un fauteuil et se plonger dans la lecture");
+
+
 			}
-		
+			a.close();
+		}
+	}
+
 
 
 }
 
-	

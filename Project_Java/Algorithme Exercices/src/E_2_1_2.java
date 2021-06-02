@@ -15,54 +15,54 @@ Appuyez sur une touche pour quitter.*/
 
 import java.util.*;
 public class E_2_1_2 {
-public static void main(String[] args) {
-	
-	
-	
-	
-	System.out.println("Convertisseur Kilomètres <-> Miles");
-	System.out.println("____________________________________");
-	String saisie=" ";
-	double distance;
-	String [] montab;
-	Scanner sc = new Scanner (System.in);
-	System.out.print("Veuillez saisir une distance a convertir avec un espace et l'unité Km (Kilomètre) ou Mi (miles) : ");
-	saisie=sc.nextLine();
-	
-	montab= saisie.split(" ");
-	distance=Double.parseDouble (montab[0]);
-	String unite;
-	if (montab.length<2) {
-		
+	public static void main(String[] args) {
+
+
+
+
+		System.out.println("Convertisseur Kilomètres <-> Miles");
+		System.out.println("____________________________________");
+		String saisie=" ";
+		double distance;
+		String [] montab;
+		Scanner sc = new Scanner (System.in);
+		System.out.print("Veuillez saisir une distance a convertir avec un espace et l'unité Km (Kilomètre) ou Mi (miles) : ");
+		saisie=sc.nextLine();
+
+		montab= saisie.split(" ");
+		distance=Double.parseDouble (montab[0]);
+		String unite;
+		if (montab.length<2) {
+
 			unite=" ";
-		
-	} else 
-	{
-		unite=montab[1];
-	}
+
+		} else 
+		{
+			unite=montab[1];
+		}
 		for (String el: montab) 
 		{
 			System.out.print(el+" ");
 		}
-		
-		
+
+
 		if (unite.equals("km")) {
-			
+
 			double res= distance/1.609344 ;
 			/*res = new DecimalFormat("0.00");*/
-			
+
 			System.out.println("Cela donne en miles : "+res);
-			
+
 		} else {
-			
+
 			double res2= distance*1.609344 ;
 			System.out.println("Cela donne en kilomètre : "+res2);
 
 		}
-		
+
 		sc.close();
-		
-		
+
+
 	}
 
 }

@@ -48,38 +48,38 @@ public class E_Final {
 
 		System.out.println(afficherTableau (monTab));
 
-		
+
 	}
-		
 
 
-		static String afficherTableau(int monTab[]){
-			for (int i = 0; i < monTab.length; i++) 
-			{
-				System.out.print(monTab [i] +" ");
+
+	static String afficherTableau(int monTab[]){
+		for (int i = 0; i < monTab.length; i++) 
+		{
+			System.out.print(monTab [i] +" ");
+		}
+		return "";
+	}
+
+	void Calcul_PGCD (int tableau[])
+	{
+		int passage = 0;
+		boolean permutation = true;
+		int en_cours;
+
+		while ( permutation) {
+			permutation = false;
+			passage ++;
+			for (en_cours=0;en_cours<20-passage;en_cours++) {
+				if (tableau[en_cours]>tableau[en_cours+1]){
+					permutation = true;
+					// on echange les deux elements
+					int temp = tableau[en_cours];
+					tableau[en_cours] = tableau[en_cours+1];
+					tableau[en_cours+1] = temp;
+				}
 			}
-			return "";
 		}
 
-		void Calcul_PGCD (int tableau[])
-		{
-			int passage = 0;
-			boolean permutation = true;
-			int en_cours;
-
-			while ( permutation) {
-				permutation = false;
-				passage ++;
-				for (en_cours=0;en_cours<20-passage;en_cours++) {
-					if (tableau[en_cours]>tableau[en_cours+1]){
-						permutation = true;
-						// on echange les deux elements
-						int temp = tableau[en_cours];
-						tableau[en_cours] = tableau[en_cours+1];
-						tableau[en_cours+1] = temp;
-					}
-				}
 	}
-
-}
 }

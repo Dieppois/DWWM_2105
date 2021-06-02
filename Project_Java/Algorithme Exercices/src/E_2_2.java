@@ -19,7 +19,7 @@ import java.util.*;
 public class E_2_2 {
 
 	public static void main(String[] args) {
-		
+
 
 		System.out.println("CONVERTISSEUR DEGRÉ CELCIUS ET DEGRÉ FAHRENHEIT");
 		System.out.println("----------------------------------------------------------");
@@ -90,14 +90,14 @@ public class E_2_2 {
 		sc.close();
 
 	}
-	
+
 	public static double nombreArrondi( double nb, int chiffrevirgule)
 	{
-	 
+
 		double temp = nb*Math.pow(10, chiffrevirgule);
 		double nbarrondis = Math.round(temp)/Math.pow(10, chiffrevirgule);
-	 
-	 return nbarrondis;
-		
+
+		return nbarrondis;
+
 	}
 }

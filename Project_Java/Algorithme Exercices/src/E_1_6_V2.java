@@ -2,7 +2,7 @@
 Lire un nombre N et déterminer s’il est un nombre premier.*/
 
 import java.util.*;
-public class E_1_6_1 {
+public class E_1_6_V2 {
 	public static void main(String[] args) {
 
 		Scanner sc =new Scanner (System.in);
@@ -45,16 +45,16 @@ public class E_1_6_1 {
 		sc.close();	
 	}
 
-
+	/*
 	static long rechercheDiviseur (long _unNombre )
 	{
 		long [] mesDiviseurs= new long[100];
 		int compteurCase=0;
 
-		/* de int i = 2 jusqu'a i < _unNombre */
+		//de int i = 2 jusqu'a i < _unNombre 
 		for (int i = 2; i < _unNombre ; i++) {
 
-			/* modulo */	
+			// modulo 	
 			if (_unNombre%i==0)  {
 
 				mesDiviseurs[compteurCase]=i;
@@ -83,25 +83,25 @@ diviseurs=rechercheDiviseur (nbtest);
 for (int i = 0; i < diviseurs.length; i++) 
 {
 	if (diviseurs[i]!= 0) {
-		
-	
+
+
 	System.out.println(diviseurs[i]);
-	
-	
+
+
 }*/
 }	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

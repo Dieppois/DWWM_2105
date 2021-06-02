@@ -13,34 +13,6 @@ Si oui, indiquer la valeur de l'indice correspondant. Sinon, indiquer « Non trou
 			do {
 			int [] monTableau = {4, 16 , 23, 42 ,8 ,15 };
 			
-			
-			
-			
-			
-			/*Random aleas = new Random();
-			for for (int i = 0; i < monTableau.length; i++) {
-				monTableau[i]=aleas.nextInt(51);
-			}
-			
-			 */
-			
-			//Saisir données dans un tableau
-			/*System.out.println("Entrez 5 chiffres entre 1 et 50 dans un tableau");
-			int [] monTableau = new int [51];
-			monTableau [0] = sc.nextInt();
-			sc.nextLine();
-			monTableau [1] = sc.nextInt();
-			sc.nextLine();
-			monTableau [2] = sc.nextInt();
-			sc.nextLine();
-			monTableau [3] = sc.nextInt();
-			sc.nextLine();
-			monTableau [4] = sc.nextInt();
-			sc.nextLine();
-			monTableau [5] = sc.nextInt();
-			sc.nextLine();*/
-			
-			
 			Arrays.sort(monTableau); 
 
 			System.out.println("Entrez un nombre entre 1 et 50\n");
@@ -82,3 +54,28 @@ Si oui, indiquer la valeur de l'indice correspondant. Sinon, indiquer « Non trou
 		}
 
 	}
+	
+	
+	
+	/*Random aleas = new Random();
+	for for (int i = 0; i < monTableau.length; i++) {
+		monTableau[i]=aleas.nextInt(51);
+	}
+	
+	 */
+	
+	//Saisir données dans un tableau
+	/*System.out.println("Entrez 5 chiffres entre 1 et 50 dans un tableau");
+	int [] monTableau = new int [51];
+	monTableau [0] = sc.nextInt();
+	sc.nextLine();
+	monTableau [1] = sc.nextInt();
+	sc.nextLine();
+	monTableau [2] = sc.nextInt();
+	sc.nextLine();
+	monTableau [3] = sc.nextInt();
+	sc.nextLine();
+	monTableau [4] = sc.nextInt();
+	sc.nextLine();
+	monTableau [5] = sc.nextInt();
+	sc.nextLine();*/
