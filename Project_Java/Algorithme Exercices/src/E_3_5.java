@@ -14,87 +14,79 @@ import java.util.*;
 public class E_3_5 {
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner (System.in);
-		
+
 		int k = 2;
 		String rep ="";
 		do {
-		
-		System.out.println("Ecris phrase ou une suite de nombre terminé par un point.");
-		String phrase = "je test une phrase ou une suite de nombre";
-		phrase = sc.nextLine();
-		
-		System.out.println(phrase);
-		
-		
-		
-		phrase = phrase.replaceAll("\\p{Punct}", "");
-		
-		phrase = phrase.replaceAll(" ", "");
-		
-		if (phrase.equalsIgnoreCase("")) {
-			
-		System.out.println("LA CHAINE EST VIDE");
-			
-		} else {
-		System.out.println(phrase);
-		
-		int a = 0;
-		int c =phrase.length()-1;
-		
 
-		
-		do { 
+			System.out.println("Saisissez une phrase ou une suite de nombres terminés par un point.");
+			String phrase = "je test une phrase ou une suite de nombre";
+			phrase = sc.nextLine();
+
+			System.out.println(phrase);
+
 			
-			char b = phrase.charAt(a);
-			char d = phrase.charAt(c);
 			
-			System.out.println(b);
-			System.out.println(d);
-			if (b == d) {
+	        phrase=phrase.replaceAll("\'", " " );
+			phrase=phrase.replaceAll("\\.", "" );
+
 			
-				a = a+1;
-				c = c-1;
-			}
-			else {
+			System.out.println(phrase);
+			phrase = phrase.replaceAll(" ", "");
+
+			if (phrase.equalsIgnoreCase("")) {
+
+				System.out.println("LA CHAINE EST VIDE");
+
+			} else {
+			
+
+				int a = 0;
+				int c =phrase.length()-1;
+
+
+				do { 
+
+					char b = phrase.charAt(a);
+					char d = phrase.charAt(c);
+
+					
+					if (b == d) {
+
+						a = a+1;
+						c = c-1;
+					}
+					else {
+
+						k = 5;
+						System.out.println("PAS Palindrome");	
+						System.out.println(b+" n'est pas égale à "+d);	
+						break;
+					}
 				
-				k = 5;
-				System.out.println("PAS Palindrome");	
-				System.out.println(b+" n'est pas égale à "+d);	
-				break;
+				} while ( a <= c );
+
+				if (k==2) {
+					System.out.println("Palindrome");	
+				}
+
 			}
-			System.out.println(a);
-			
-			System.out.println(c);
-		} while ( a <= c );
-		
-		if (k==2) {
-			System.out.println("Palindrome");	
-		}
-		
-		}
-		System.out.println("Voulez-vous continuer ? O/N ");
-		
-		rep = sc.nextLine();
-		
-		
-		
-		
+			System.out.println("Voulez-vous continuer ? O/N ");
+
+			rep = sc.nextLine();
+
+
 		}while (rep.equalsIgnoreCase("o"));
-		
-		
-		
-		
-		
+
+
 		System.out.println("Fin");	
-	
-		
-		
+
+
 		sc.close();
 	}
 }
-		
-		
-		
-		
+
+
+

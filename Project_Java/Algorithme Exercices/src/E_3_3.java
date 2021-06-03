@@ -10,10 +10,17 @@ public class E_3_3 {
 		Scanner sc = new Scanner (System.in);
 
 		String phrase = "";
-		char [] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		char [] alphabet = new char [26];
+		char lettre ='a';
+		for (int i = 0; i < alphabet.length; i++) {
+			alphabet[i]=lettre;
+			lettre++;
+		}
+		for(char element : alphabet) {
+			System.out.print(element + " ");
+		}
 
-
-		System.out.println("Ecris une phrase");
+		System.out.println("Saisissez une phrase");
 		phrase = sc.nextLine();
 
 		phrase = phrase.replaceAll(" ", "");
@@ -27,16 +34,16 @@ public class E_3_3 {
 		phrase = phrase.replace("ô", "o");
 
 		if (phrase.length() >121) {
-		letterFinder (alphabet, phrase);
+			letterFinder (alphabet, phrase);
 		} else System.out.println("La phrase est de moins de 120 char");
 		sc.close();
 	}
 	static String letterFinder (char _tab [], String _phrase ) {
 		int compteur = 0;
-		
+
 		for (int i = 0; i < _tab.length; i++) {
 			char a = _tab [i];
-			
+
 			for (int j = 0; j < _phrase.length(); j++) {
 				char b = _phrase.charAt(j);
 
@@ -52,9 +59,10 @@ public class E_3_3 {
 			compteur =0;
 		}
 		return "";
-		
+
 	
-	}
 }
+	}
+
 
 

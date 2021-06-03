@@ -4,8 +4,6 @@ On commence par chercher l'indice du plus petit des éléments, soit j cet indice.
 On permute alors les valeurs de a1 et aj .
 On cherche ensuite l'indice du plus petit des éléments a2, a3, ..., an et on permute avec a2, etc.*/
 
-//System.out.println(Arrays.toString(monTableau));
-
 import java.util.*;
 public class E_3_4 {
 

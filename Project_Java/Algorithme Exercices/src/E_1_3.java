@@ -2,47 +2,47 @@
 Lire le rayon R d'un cercle et un angle A (en degré(s)). 
 Calculer et afficher :
 L’ aire du secteur circulaire = π R2 A / 360
-*/
+ */
 
 
 import java.util.Scanner;
 public class E_1_3 {
 
-public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
-	Scanner a = new Scanner(System.in);
-	
-	String oui;
-				
-	
-			do {
-			
-			
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Scanner a = new Scanner(System.in);
+
+		String oui;
+
+
+		do {
+
+
 			double angle, rayon, aire;
-			
-		
+
+
 			System.out.println("Entrez le rayon du cercle");
 			rayon = a.nextDouble();
-			
+
 			System.out.println("Entrez l'angle du cercle en degré ");
 			angle = a.nextDouble();
-			
+
 			aire = Math.PI*Math.pow(rayon, 2)*angle/360;
-			
-			
+
+
 			System.out.println("La surface d'un secteur circulaire est :" +aire );
 			System.out.println("\nContinuer ?");
-			
+
 			oui = sc.nextLine().toLowerCase();
-			
-				
-			}
-			while ( oui.equalsIgnoreCase("oui") );
-			sc.close();
-			a.close();
-			
-			}
-			
+
+
+		}
+		while ( oui.equalsIgnoreCase("oui") );
+		sc.close();
+		a.close();
+
 	}
+
+}
 
 
