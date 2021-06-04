@@ -103,28 +103,8 @@ public class E_3_3_V2 {
 	}
 
 
-	static String letterFinder (char _tab [], String _phrase ) {
-		int compteur = 0;
-
-		for (int i = 0; i < _tab.length; i++) {
-			char a = _tab [i];
-
-			for (int j = 0; j < _phrase.length(); j++) {
-				char b = _phrase.charAt(j);
-
-				if (b == a )
-				{ 
-					compteur++;
-				}
-				if (j == _phrase.length()-1 && compteur > 0) 
-				{
-					System.out.println("La lettre : "+_tab [i] +" apparait "+compteur +" fois.");}
-			}
-
-			compteur =0;
-		}
-		return "";
-	}
+	
+	
 
 }
 
