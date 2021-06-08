@@ -25,6 +25,7 @@ public class E_3_7_V2 {
 
 	public static void main(String[] args) {
 
+		
 		Scanner sc = new Scanner ( System.in);
 		String [] monTab = {"agathe","berthe","chloe","cunegonde","olga","raymonde","sidonie"};
 
@@ -37,38 +38,39 @@ public class E_3_7_V2 {
 		int d = 0;   
 
 
-		binarySearch(monTab,d,f,val,prenom);  
+		rechercheDichotomie(monTab,d,f,val,prenom);  
 
 
 		sc.close();
-
-	}public static int valeurLettre (String _mot) {
+	}
+	public static int valeurLettre (String _mot) {
 
 		char lettre = _mot.charAt(0);
 		int val= lettre-96;
-		
+
 		return val;
+	}	
+	public static boolean comparerMot (String _mot, String _mot2 ) {
+
+		
+		if (_mot.equalsIgnoreCase(_mot2)) {
+			return true; }
+		else {
+			return false;
+		}
+
+
 	}
-	
-public static int valeurLettre2 (String _mot) {
-
-	char lettre = _mot.charAt(1);
-	int val= lettre-96;
-	
-	return val;
-}
-
-
-	public static void binarySearch(String _tab[], int d, int f, int val, String _prenom){
+	public static void rechercheDichotomie(String _tab[], int d, int f, int val, String _prenom){
 
 		int mid= (d +f)/2;   																			// mid du tableau
 		while(d <= f){                     			 
 			if (valeurLettre (_tab[mid]) < val){														// si val > tableau /2
 				d = mid + 1;   																			// f mini = mid+1
-			}else if(valeurLettre (_tab[mid]) == val && valeurLettre2 (_tab[mid]) == valeurLettre2 (_prenom))  
-				
-				{System.out.println("La personne prenommée "+ _prenom +" se trouve à l'index: " + (mid+1)); 
-				break;
+			}else if(valeurLettre (_tab[mid]) == val && comparerMot(_tab[mid], _prenom) == true )  
+
+			{System.out.println("La personne prenommée "+ _prenom +" se trouve à l'index: " + (mid+1)); 
+			break;
 			}else{
 				f = mid - 1;                        													 // si val < tableau /2  => l max = mid-1
 			}
@@ -79,15 +81,7 @@ public static int valeurLettre2 (String _mot) {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
 
