@@ -48,7 +48,7 @@ public class E_Final {
 		System.out.println("Entrez 2 nombres entiers séparés d'un espace : ");
 
 		saisie = sc.nextLine();									  		
-		monTab = saisie.split(" ");
+		monTab = saisie.split(" "); 
 		
 		p= Integer.parseInt(monTab[0]);
 		q= Integer.parseInt(monTab[1]);
