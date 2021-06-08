@@ -36,50 +36,43 @@ import java.util.*;
 public class E_Final {
 
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner (System.in);
-		int [] monTab = new int [5];
+		
+		int p = 0;
+		int q = 0;
+		
+		String [] monTab;       
+		String saisie =" ";
+		
+		System.out.println("Entrez 2 nombres entiers séparés d'un espace : ");
 
+		saisie = sc.nextLine();									  		
+		monTab = saisie.split(" ");
+		
+		p= Integer.parseInt(monTab[0]);
+		q= Integer.parseInt(monTab[1]);
+		
+		Calcul_PGCD (p,q);
 
-
-		for (int i = 0; i < monTab.length; i++) 
-		{
-			monTab [i] = sc.nextInt();	
-		}
-
-		System.out.println(afficherTableau (monTab));
-
-
-	}
-
-
-
-	static String afficherTableau(int monTab[]){
-		for (int i = 0; i < monTab.length; i++) 
-		{
-			System.out.print(monTab [i] +" ");
-		}
-		return "";
-	}
-
-	void Calcul_PGCD (int tableau[])
-	{
-		int passage = 0;
-		boolean permutation = true;
-		int en_cours;
-
-		while ( permutation) {
-			permutation = false;
-			passage ++;
-			for (en_cours=0;en_cours<20-passage;en_cours++) {
-				if (tableau[en_cours]>tableau[en_cours+1]){
-					permutation = true;
-					// on echange les deux elements
-					int temp = tableau[en_cours];
-					tableau[en_cours] = tableau[en_cours+1];
-					tableau[en_cours+1] = temp;
-				}
+		sc.close();
+		
+		
+	}public static int Calcul_PGCD ( int p, int q) {
+			
+			
+		System.out.println( "Calcul du PGCD entre : " +q +" et "+p  );
+			
+			while ( p != q) {
+				if (p>q) 
+				{ p = p - q; }
+				else { q = q-p; }
 			}
-		}
-
+			
+		
+			System.out.println("PGCD = " +p );
+			return p;
+			
 	}
-}
+	}
+	
