@@ -52,7 +52,7 @@ public class E_Final {
 		
 		p= Integer.parseInt(monTab[0]);
 		q= Integer.parseInt(monTab[1]);
-	System.out.println("La fraction non simplifié est : " +(a)+"/"+(b)+"\n\n" );
+	System.out.println("La fraction non simplifié est : " +p+"/"+q+"\n\n" );
 		
 		Calcul_PGCD (p,q);
 
