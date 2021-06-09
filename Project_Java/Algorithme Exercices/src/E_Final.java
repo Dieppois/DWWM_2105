@@ -52,6 +52,7 @@ public class E_Final {
 		
 		p= Integer.parseInt(monTab[0]);
 		q= Integer.parseInt(monTab[1]);
+	
 		
 		Calcul_PGCD (p,q);
 
@@ -59,19 +60,27 @@ public class E_Final {
 		
 		
 	}public static int Calcul_PGCD ( int p, int q) {
+	
+		
+		int temp_p = p;
+		int temp_q = q;
 			
 			
-		System.out.println( "Calcul du PGCD entre : " +q +" et "+p  );
-			
-			while ( p != q) {
+	while ( p != q) {
 				if (p>q) 
 				{ p = p - q; }
 				else { q = q-p; }
 			}
 			
-		
+			int a = temp_p / p;
+			int b = temp_q / q;
+			
+			
 			System.out.println("PGCD = " +p );
+		
+			System.out.println("La fraction la plus simplifié : " +(a)+"/"+(b)+"\n\n" );
 			return p;
+			
 			
 	}
 	}

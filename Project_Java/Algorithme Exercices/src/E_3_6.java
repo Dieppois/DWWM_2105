@@ -18,10 +18,10 @@ public class E_3_6 {
 		do  {
 
 			char test = ' ';
-			//boolean flag= true;
+	
 			int compteur =6;
 			boolean trouve=false;
-			System.out.println("Entrez un mot de minimum 5 caractères");
+			System.out.println("Entrez un mot de minimum 5 caracteres");
 			String mot ="test";
 			mot = sc.nextLine();
 			
@@ -61,16 +61,14 @@ public class E_3_6 {
 					}
 
 					trouve = verifLettre (pendu, ('-'));
-					//System.out.println(flag);
+					
 					
 				}while (   compteur >0 && trouve == false );
 
-				// Pourquoi le programme marche avec && et pas avec || ???
-
 
 				System.out.println(pendu);
-				if (flag == false) {
-					System.out.println("Vous avez gagné");
+				if (trouve == true) {
+					System.out.println("Vous avez gagnee");
 				} else {
 					System.out.println("Vous avez perdu");
 				}
@@ -92,10 +90,10 @@ public class E_3_6 {
 		for(int i = 0; i < _pendu.length; i++){
 			if(_pendu[i] == _lettre){
 				trouvemot = false;
-				//     break;
+				
 			}
 		}
-		return value;
+		return trouvemot;
 	}
 
 }

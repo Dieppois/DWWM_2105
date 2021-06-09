@@ -50,6 +50,7 @@ public class E_double_dim {
 		trierEffectif(mesFormations);
 		afficherFormation(mesFormations);
 		
+
 		
 		
 		
