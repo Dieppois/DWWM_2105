@@ -25,14 +25,14 @@ public class E_Factorielle {
 	}	
 		public static int factorielle (int _a) {
 		
-			int temp = 1;
+			
 			
 			if ( _a == 0 || _a ==1 ) {
 				return 1;
 			}
 			else {
-			temp = factorielle(_a -1)*_a;
-			return temp;
+			return factorielle(_a -1)*_a;
+			
 	}
 		}
 }
