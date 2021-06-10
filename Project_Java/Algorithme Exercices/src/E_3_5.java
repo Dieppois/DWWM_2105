@@ -86,6 +86,16 @@ public class E_3_5 {
 
 		sc.close();
 	}
+	
+	
+/*
+    public static boolean palindrom(String n) {​​​​​​​
+        if(n.length()==0 || n.length()== 1) return true;
+        if (n.charAt(0)==n.charAt(n.length()-1))return palindrom(n.substring(1, n.length()-1));
+        return false;
+    }​​​​​​​
+}
+*/
 }
 
 

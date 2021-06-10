@@ -15,17 +15,17 @@ public class E_Factorielle {
 	
 		Scanner sc = new Scanner (System.in);
 		
-		int a = sc.nextInt();
+		long a = sc.nextInt();
 		factorielle(a);
 		
 		System.out.println(factorielle(a));
+
 	
 		
 		sc.close();
 	}	
-		public static int factorielle (int _a) {
+		public static long factorielle (long _a) {
 		
-			
 			
 			if ( _a == 0 || _a ==1 ) {
 				return 1;
