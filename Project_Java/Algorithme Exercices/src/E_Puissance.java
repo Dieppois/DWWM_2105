@@ -7,7 +7,7 @@ public class E_Puissance {
 	
 	System.out.println("Entrez un nombre");
 	int a = sc.nextInt();
-	System.out.println("Humm");
+	System.out.println("Entrez l'indice de puissance");
 	int b = sc.nextInt();
 	
 	System.out.println( "La puissance de " + (a) + " est " +  (nombrePuissance( a, b )) );
@@ -26,21 +26,3 @@ public class E_Puissance {
 	}
 }
 
-	/*	​
-		Console.WriteLine(Multiplie(10,3));​
-		Console.ReadLine();​
-		}​
-		static private int Multiplie(int a,int n)​
-		{​
-		int resultat;​
-		if (n < 1)            ​
-		{​
-		    resultat = 0;​
-		}​
-		else​
-		{​
-		   resultat = Multiplie(a,n-1) + a;​
-		}​
-		return resultat;​
-		}​
-		*/
