@@ -27,8 +27,7 @@ public class E_3_6 {
 			
 			if (mot.length() < 6) {
 				System.out.println("Le mot est trop court");
-			} else 
-			
+			} else 	
 			{
 				
 				char [] pendu = new char [mot.length()];
@@ -38,16 +37,12 @@ public class E_3_6 {
 				pendu[0] = mot.charAt(0);
 				pendu[mot.length()-1] = mot.charAt(mot.length()-1);
 
-
 				do {
-
-
 					System.out.println(pendu);
 
 					System.out.println("Vous avez "+compteur+" chance(s) pour remplir le mot ");
 
 					compteur--;
-
 
 					test = sc.nextLine().charAt(0);
 
@@ -56,8 +51,6 @@ public class E_3_6 {
 
 							pendu[i]=mot.toCharArray()[i];
 						}
-
-
 					}
 
 					trouve = verifLettre (pendu, ('-'));
@@ -72,7 +65,6 @@ public class E_3_6 {
 				} else {
 					System.out.println("Vous avez perdu");
 				}
-
 			}
 			System.out.println("Voulez vous rejouer ? O/N");
 
@@ -82,8 +74,6 @@ public class E_3_6 {
 		System.out.println("Fin");
 		sc.close();
 	}
-
-
 
 	public static boolean verifLettre(char[] _pendu, char _lettre){
 		boolean trouvemot = true;

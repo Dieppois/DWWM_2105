@@ -22,19 +22,12 @@ public class E_3_5 {
 		do {
 
 			System.out.println("Saisissez une phrase ou une suite de nombres terminés par un point.");
-			String phrase = "je test une phrase ou une suite de nombre";
+			String phrase = "je test une phrase ou une suite de nombre.";
 			phrase = sc.nextLine();
 
-			System.out.println(phrase);
-
-			
-			
 	        phrase=phrase.replaceAll("\'", " " );
 			phrase=phrase.replaceAll("\\.", "" );
-
-			
-			System.out.println(phrase);
-			phrase = phrase.replaceAll(" ", "");
+			phrase=phrase.replaceAll(" ", "");
 
 			if (phrase.equalsIgnoreCase("")) {
 
