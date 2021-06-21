@@ -63,18 +63,18 @@ public class E_3_7_V2 {
 	}
 	public static void rechercheDichotomie(String _tab[], int d, int f, int val, String _prenom){
 
-		int mid= (d +f)/2;   																			// mid du tableau
+		int mid= (d +f)/2;   																			
 		while(d <= f){                     			 
-			if (valeurLettre (_tab[mid]) < val){														// si val > tableau /2
-				d = mid + 1;   																			// f mini = mid+1
+			if (valeurLettre (_tab[mid]) < val){														
+				d = mid + 1;   																			
 			}else if(valeurLettre (_tab[mid]) == val && comparerMot(_tab[mid], _prenom) == true )  
 
 			{System.out.println("La personne prenommée "+ _prenom +" se trouve à l'index: " + (mid+1)); 
 			break;
 			}else{
-				f = mid - 1;                        													 // si val < tableau /2  => l max = mid-1
+				f = mid - 1;                        													
 			}
-			mid = (d + f)/2;																			 // mid moitié = ( 0 / moitié +1 + moitié - 1 / max ) / 2 
+			mid = (d + f)/2;																			 
 		}
 		if (d > f){									
 			System.out.println("L'élément n'existe pas!");
