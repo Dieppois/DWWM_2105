@@ -99,12 +99,6 @@ public class E_3_3_V2 {
 					_monTab [j] = temp;}
 			}
 		}
-
 	}
-
-
-	
-	
-
 }
 

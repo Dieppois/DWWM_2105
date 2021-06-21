@@ -22,19 +22,12 @@ public class E_3_5 {
 		do {
 
 			System.out.println("Saisissez une phrase ou une suite de nombres terminés par un point.");
-			String phrase = "je test une phrase ou une suite de nombre";
+			String phrase = "je test une phrase ou une suite de nombre.";
 			phrase = sc.nextLine();
 
-			System.out.println(phrase);
-
-			
-			
 	        phrase=phrase.replaceAll("\'", " " );
 			phrase=phrase.replaceAll("\\.", "" );
-
-			
-			System.out.println(phrase);
-			phrase = phrase.replaceAll(" ", "");
+			phrase=phrase.replaceAll(" ", "");
 
 			if (phrase.equalsIgnoreCase("")) {
 
@@ -86,6 +79,16 @@ public class E_3_5 {
 
 		sc.close();
 	}
+	
+	
+/*
+    public static boolean palindrom(String n) {​​​​​​​
+        if(n.length()==0 || n.length()== 1) return true;
+        if (n.charAt(0)==n.charAt(n.length()-1))return palindrom(n.substring(1, n.length()-1));
+        return false;
+    }​​​​​​​
+}
+*/
 }
 
 
