@@ -2,9 +2,11 @@
 
 namespace CompteClient
 {
-    class CompteClient
+    class Program
     {
-        //attributs
+        static void Main(string[] args)
+        {
+           //attributs
         private long numCli;
         private string nomCli;
         private double solde;
@@ -34,5 +36,6 @@ namespace CompteClient
         }
         //Destructeur
         //methodes
-
     }
+}
+}
