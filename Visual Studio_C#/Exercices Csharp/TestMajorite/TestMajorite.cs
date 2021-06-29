@@ -2,7 +2,7 @@
 
 namespace TestMajorite
 {
-    class Program
+    class TestMajorite
     {
         static void Main(string[] args)
         {

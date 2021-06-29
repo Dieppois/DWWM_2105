@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CompteClient
 {
-    class Program
+    class Class1
     {
-        static void Main(string[] args)
-        {
-           //attributs
+        //attributs
         private long numCli;
         private string nomCli;
         private double solde;
@@ -33,9 +33,10 @@ namespace CompteClient
             this.nomCli = _nomCli;
             this.SetSolde(_solde);
             this.decouvertAutorise = _da;
+
         }
         //Destructeur
-        //methodes
+
+        int crédit = Console.Write(long);
     }
-}
 }
