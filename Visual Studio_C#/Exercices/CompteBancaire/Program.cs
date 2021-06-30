@@ -17,7 +17,9 @@ namespace CompteBancaire
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();
             if (answer.ToLower().Equals("o"))
-                Console.WriteLine(compte1.Afficher());
+            {
+            Console.WriteLine(compte1.Afficher());
+            }
 
             Console.Write("\nVoulez-vous consulter les autres comptes ? O/N : ");
             answer = Console.ReadLine();
