@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class E_1_5 {
 	public static void main(String[] args) {
 
-
-		Scanner sc =new Scanner(System.in);
+		Scanner sc = new Scanner (System.in);
 
 		System.out.println("Veuillez entrer la somme initiale");
 		double a = sc.nextDouble();

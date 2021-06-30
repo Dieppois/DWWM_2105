@@ -10,8 +10,7 @@ public class E_1_3 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Scanner a = new Scanner(System.in);
-
+		
 		String oui;
 
 
@@ -22,10 +21,10 @@ public class E_1_3 {
 
 
 			System.out.println("Entrez le rayon du cercle");
-			rayon = a.nextDouble();
+			rayon = sc.nextDouble();
 
 			System.out.println("Entrez l'angle du cercle en degré ");
-			angle = a.nextDouble();
+			angle = sc.nextDouble();
 
 			aire = Math.PI*Math.pow(rayon, 2)*angle/360;
 
@@ -39,10 +38,10 @@ public class E_1_3 {
 		}
 		while ( oui.equalsIgnoreCase("oui") );
 		sc.close();
-		a.close();
-
-	}
+		
+	
 
 }
 
 
+}
