@@ -1,24 +1,18 @@
 ﻿using System;
-
-namespace CompteBancaire
+using System.Collections.Generic;
+using Library;
+namespace Basic.Course
 {
-    class Compte
+    class Program
     {
-        // Attributs
-        private long numero;
-        private string nom;
-        private double solde;
-        private double decouvertAutorise;
-
-        // Code
         static void Main(string[] args)
         {
             String answer;
-
             Compte compte1 = new Compte(4815162342, "Bellamy", 1505, -100);
             Compte compte2 = new Compte(4815162343, "Octavia", 2007, -50);
             Compte compte3 = new Compte(4815162344, "Finn", 1985, -500);
             Compte compte4 = new Compte(4815162345, "Clark", 1007, -103);
+
 
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
@@ -93,8 +87,7 @@ namespace CompteBancaire
                         Console.WriteLine("Transfert accepté : " + (compte1.solde + num) + " - " + num);
                         Console.WriteLine("Votre solde : " + compte1.solde + "\nSolde du compte crédité : " + compte4.solde);
                     }
-
-                    if (compte2.numero != numAnswer && compte3.numero != numAnswer && compte4.numero != numAnswer)
+                    else if (compte2.numero != numAnswer && compte3.numero != numAnswer && compte4.numero != numAnswer)
                     {
                         Console.WriteLine("Mauvaise saisie, recommencez.\n");
                         flag = false;
@@ -144,58 +137,5 @@ namespace CompteBancaire
                 "Appuyez sur une touche pour quitte le programme !");
             Console.ReadLine();
         }
-
-        // Constructeurs
-        public Compte()
-        {
-
-        }
-        public Compte(long _numero, string _nom, double _solde, double _decouvertAutorise)
-        {
-            this.numero = _numero;
-            this.nom = _nom;
-            this.solde = _solde;
-            this.decouvertAutorise = _decouvertAutorise;
-        }
-
-        // Methodes
-        public string Afficher()
-        {
-            string idc = "Numero : " + numero.ToString() + "\nNom : " + nom.ToString() + "\nSolde : " + solde.ToString() +
-                "\nLimite decouvert autorisé : " + decouvertAutorise.ToString();
-            return idc;
-        }
-        public void Crediter(double _montant)
-        {
-            solde = solde + _montant;
-        }
-        public bool Debiter(double _montant)
-        {
-            if (solde - decouvertAutorise >= _montant)
-            {
-                solde = solde - _montant;
-                return true;
-            }
-            return false;
-        }
-        public bool Transferer(double _montant, Compte _compte)
-        {
-            if (solde - decouvertAutorise >= _montant)
-            {
-                solde = solde - _montant;
-                _compte.solde = _compte.solde + _montant;
-                return true;
-            }
-            return false;
-        }
-        public bool Comparer(Compte _compteY)
-        {
-            if (solde > _compteY.solde)
-            {
-                return true;
-            }
-            return false;
-        }
-
     }
 }
