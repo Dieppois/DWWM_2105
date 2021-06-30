@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClassLibraryCompteBancaire
+namespace LibraryAppCompteBancaire
 {
     public class CompteClient
     {
@@ -32,13 +32,13 @@ namespace ClassLibraryCompteBancaire
         }
         public void Crediter(double _montant)
         {
-            solde = solde + _montant;
+            solde += _montant;
         }
         public bool Debiter(double _montant)
         {
             if (solde - decouvertAutorise >= _montant)
             {
-                solde = solde - _montant;
+                solde -= _montant;
                 return true;
             }
             return false;
@@ -47,8 +47,8 @@ namespace ClassLibraryCompteBancaire
         {
             if (solde - decouvertAutorise >= _montant)
             {
-                Crediter(_montant);
-                _compte.Debiter(_montant);
+                Debiter(_montant);
+                _compte.Crediter(_montant);
                 return true;
             }
             return false;
@@ -62,4 +62,5 @@ namespace ClassLibraryCompteBancaire
             return false;
         }
     }
+
 }

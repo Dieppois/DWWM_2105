@@ -1,7 +1,7 @@
-﻿using ClassLibraryCompteBancaire;
-using System;
+﻿using System;
+using LibraryAppCompteBancaire;
 
-namespace CompteBancaire
+namespace ConsoleAppCompteBancaire
 {
     class Program
     {
@@ -18,7 +18,7 @@ namespace CompteBancaire
             answer = Console.ReadLine();
             if (answer.ToLower().Equals("o"))
             {
-            Console.WriteLine(compte1.Afficher());
+                Console.WriteLine(compte1.Afficher());
             }
 
             Console.Write("\nVoulez-vous consulter les autres comptes ? O/N : ");
@@ -102,9 +102,10 @@ namespace CompteBancaire
             answer = Console.ReadLine();
             if (answer.ToLower().Equals("o"))
             {
-                bool flag = true;
+                bool flag;
                 do
                 {
+                    flag = true;
                     Console.Write("Indiquez le nom du compte sujet à la comparaison : \"Octavia\" \"Finn\" \"Clark\" : ");
                     string Answer = Console.ReadLine();
 
