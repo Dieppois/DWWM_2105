@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using Library;
-namespace Basic.Course
+﻿using ClassLibraryCompteBancaire;
+using System;
+
+namespace CompteBancaire
 {
     class Program
     {
         static void Main(string[] args)
         {
             String answer;
-            Compte compte1 = new Compte(4815162342, "Bellamy", 1505, -100);
-            Compte compte2 = new Compte(4815162343, "Octavia", 2007, -50);
-            Compte compte3 = new Compte(4815162344, "Finn", 1985, -500);
-            Compte compte4 = new Compte(4815162345, "Clark", 1007, -103);
-
+            CompteClient compte1 = new CompteClient(4815162342, "Bellamy", 1505, -100);
+            CompteClient compte2 = new CompteClient(4815162343, "Octavia", 2007, -50);
+            CompteClient compte3 = new CompteClient(4815162344, "Finn", 1985, -500);
+            CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
 
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
@@ -49,13 +48,11 @@ namespace Basic.Course
                 Console.Write("Indiquez le montant a retirer : ");
                 double num = Convert.ToDouble(Console.ReadLine());
                 if (compte1.Debiter(num) == true)
-                {
+
                     Console.WriteLine("Débit de : " + num + " $ effectué.\nVotre solde : " + compte1.solde + "\n");
-                }
+
                 else
-                {
                     Console.WriteLine("Découvert autorisé dépassé, débit impossible.\nVotre solde : " + compte1.solde + "\n");
-                }
             }
 
             // Transférer un montant, du compte courant vers un autre compte; même remarque que pour le paragraphe précédent.
@@ -129,12 +126,10 @@ namespace Basic.Course
                         flag = false;
                     }
                 } while (flag == false);
-
             }
 
-
             Console.WriteLine("\n-------------------------------------------------------------------------------\n\n" +
-                "Appuyez sur une touche pour quitte le programme !");
+                "Appuyez sur une touche pour quitter le programme !");
             Console.ReadLine();
         }
     }

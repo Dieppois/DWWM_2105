@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Library
+namespace ClassLibraryCompteBancaire
 {
-    public class Compte
+    public class CompteClient
     {
         // Attributs
         public long numero;
@@ -13,11 +11,11 @@ namespace Library
         public double decouvertAutorise;
 
         // Constructeurs
-        public Compte()
+        public CompteClient()
         {
 
         }
-        public Compte(long _numero, string _nom, double _solde, double _decouvertAutorise)
+        public CompteClient(long _numero, string _nom, double _solde, double _decouvertAutorise)
         {
             this.numero = _numero;
             this.nom = _nom;
@@ -45,7 +43,7 @@ namespace Library
             }
             return false;
         }
-        public bool Transferer(double _montant, Compte _compte)
+        public bool Transferer(double _montant, CompteClient _compte)
         {
             if (solde - decouvertAutorise >= _montant)
             {
@@ -55,7 +53,7 @@ namespace Library
             }
             return false;
         }
-        public bool Comparer(Compte _compteY)
+        public bool Comparer(CompteClient _compteY)
         {
             if (solde > _compteY.solde)
             {
