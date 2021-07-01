@@ -2,15 +2,38 @@
 
 namespace LibraryAppCompteBancaire
 {
+    // Class
     public class CompteClient
     {
-        // Attributs
-        public long numero;
-        public string nom;
-        public double solde;
-        public double decouvertAutorise;
+        // Attributes
+        private long numero;
+        private string nom;
+        private double solde;
+        private double decouvertAutorise;
 
-        // Constructeurs
+        // Properties
+        public long Numero
+        {
+            get { return numero; }
+            set { numero = value; }
+
+        }
+        public string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+        public double Solde
+        {
+            get { return solde; }
+            set { solde = value; }
+        }
+        public double DecouvertAutorise
+        {
+            get { return decouvertAutorise; }
+            set { decouvertAutorise = value; }
+        }
+        // Constructors
         public CompteClient()
         {
 
@@ -23,7 +46,7 @@ namespace LibraryAppCompteBancaire
             this.decouvertAutorise = _decouvertAutorise;
         }
 
-        // Methodes
+        // Methods
         public string Afficher()
         {
             string idc = "Numero : " + numero.ToString() + "\nNom : " + nom.ToString() + "\nSolde : " + solde.ToString() +
