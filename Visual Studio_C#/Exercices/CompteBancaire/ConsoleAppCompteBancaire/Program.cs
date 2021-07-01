@@ -13,23 +13,22 @@ namespace ConsoleAppCompteBancaire
             CompteClient compte3 = new CompteClient(4815162344, "Finn", 1985, -500);
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
 
-            
-
+         
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();
             if (answer.ToLower().Equals("o"))
             {
-                Console.WriteLine(compte1.Afficher());
+                Console.WriteLine(compte1.ToString());
             }
 
             Console.Write("\nVoulez-vous consulter les autres comptes ? O/N : ");
             answer = Console.ReadLine();
             if (answer.ToLower().Equals("o"))
             {
-                Console.WriteLine(compte2.Afficher());
-                Console.WriteLine(compte3.Afficher());
-                Console.WriteLine(compte4.Afficher());
+                Console.WriteLine(compte2.ToString());
+                Console.WriteLine(compte3.ToString());
+                Console.WriteLine(compte4.ToString());
                 Console.WriteLine("");
             }
 
@@ -70,7 +69,7 @@ namespace ConsoleAppCompteBancaire
                     flag = true;
                     Console.Write("Indiquez le Numero du compte sujet au transfert : \"4815162343\" \"4815162344\" \"4815162345\" : ");
                     long numAnswer = Convert.ToInt64(Console.ReadLine());
-                    Console.Write("PIndiquez le montant a transferer (Solde actuel : " + compte1.Solde + ". Decouvert autorisé : " + compte1.DecouvertAutorise + " ) : ");
+                    Console.Write("Indiquez le montant a transferer (Solde actuel : " + compte1.Solde + ". Decouvert autorisé : " + compte1.DecouvertAutorise + " ) : ");
                     double num = Convert.ToDouble(Console.ReadLine());
 
                     if (compte2.Numero == numAnswer && compte1.Transferer(num, compte2) == true)
@@ -112,17 +111,17 @@ namespace ConsoleAppCompteBancaire
                     string Answer = Console.ReadLine();
 
                     if (compte2.Nom == Answer)
-                        if (compte1.Comparer(compte2) == true)
+                        if (compte1.Superieur(compte2) == true)
                             Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est supérieur a celui du compte de " + compte2.Nom + " et son Solde de " + compte2.Solde);
                         else Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est inférieur a celui du compte de " + compte2.Nom + " et son Solde de " + compte2.Solde);
 
                     else if (compte3.Nom == Answer)
-                        if (compte1.Comparer(compte3) == true)
+                        if (compte1.Superieur(compte3) == true)
                             Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est supérieur a celui du compte de " + compte3.Nom + " et son Solde de " + compte3.Solde);
                         else Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est inférieur a celui du compte de " + compte3.Nom + " et son Solde de " + compte3.Solde);
 
                     else if (compte4.Nom == Answer)
-                        if (compte1.Comparer(compte4) == true)
+                        if (compte1.Superieur(compte4) == true)
                             Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est supérieur a celui du compte de " + compte4.Nom + " et son Solde de " + compte4.Solde);
                         else Console.WriteLine("Le Solde de votre compte de " + compte1.Solde + " est inférieur a celui du compte de " + compte4.Nom + " et son Solde de " + compte4.Solde);
                     else

@@ -15,13 +15,10 @@ namespace LibraryAppCompteBancaire
         public long Numero
         {
             get { return numero; }
-            set { numero = value; }
-
         }
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
         }
         public double Solde
         {
@@ -31,12 +28,14 @@ namespace LibraryAppCompteBancaire
         public double DecouvertAutorise
         {
             get { return decouvertAutorise; }
-            set { decouvertAutorise = value; }
         }
         // Constructors
         public CompteClient()
         {
-
+            numero = 4815161341;
+            nom = "John";
+            solde = 100000;
+            decouvertAutorise = 0;
         }
         public CompteClient(long _numero, string _nom, double _solde, double _decouvertAutorise)
         {
@@ -47,11 +46,9 @@ namespace LibraryAppCompteBancaire
         }
 
         // Methods
-        public string Afficher()
+        public override string ToString()
         {
-            string idc = "Numero : " + numero.ToString() + "\nNom : " + nom.ToString() + "\nSolde : " + solde.ToString() +
-                "\nLimite decouvert autorisé : " + decouvertAutorise.ToString();
-            return idc;
+            return "Numero : " + numero + "\nNom : " + nom + "\nSolde : " + solde + "\nLimite decouvert autorisé : " + decouvertAutorise;
         }
         public void Crediter(double _montant)
         {
@@ -68,15 +65,14 @@ namespace LibraryAppCompteBancaire
         }
         public bool Transferer(double _montant, CompteClient _compte)
         {
-            if (solde - decouvertAutorise >= _montant)
+            if (Debiter(_montant) == true)
             {
-                Debiter(_montant);
                 _compte.Crediter(_montant);
                 return true;
             }
             return false;
         }
-        public bool Comparer(CompteClient _compteY)
+        public bool Superieur(CompteClient _compteY)
         {
             if (solde > _compteY.solde)
             {
