@@ -12,8 +12,9 @@ namespace ConsoleAppCompteBancaire
             CompteClient compte2 = new CompteClient(4815162343, "Octavia", 2007, -50);
             CompteClient compte3 = new CompteClient(4815162344, "Finn", 1985, -500);
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
+            CompteClient compte5 = new CompteClient();
 
-         
+            
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();
@@ -29,6 +30,7 @@ namespace ConsoleAppCompteBancaire
                 Console.WriteLine(compte2.ToString());
                 Console.WriteLine(compte3.ToString());
                 Console.WriteLine(compte4.ToString());
+                Console.WriteLine(compte5.ToString());
                 Console.WriteLine("");
             }
 
