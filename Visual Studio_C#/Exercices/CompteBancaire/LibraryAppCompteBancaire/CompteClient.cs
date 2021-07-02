@@ -32,10 +32,10 @@ namespace LibraryAppCompteBancaire
         // Constructors
         public CompteClient()
         {
-            numero = 4815161341;
-            nom = "John";
-            solde = 100000;
-            decouvertAutorise = 0;
+            this.numero = 4815161341;
+            this.nom = "John";
+            this.solde = 100000;
+            this.decouvertAutorise = 0;
         }
         public CompteClient(long _numero, string _nom, double _solde, double _decouvertAutorise)
         {
