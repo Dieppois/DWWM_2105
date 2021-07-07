@@ -8,13 +8,19 @@ namespace ConsoleAppCompteBancaire
         static void Main(string[] args)
         {
             String answer;
-            CompteClient compte1 = new CompteClient(4815162342, "Bellamy", 1505, -100);
-            CompteClient compte2 = new CompteClient(4815162343, "Octavia", 2007, -50);
+
+            Banque BNP = new Banque("BANQUE NATIONAL PARIS", "PARIS");
+
+            CompteClient compte1 = new CompteClient(4815162342, "Bellamy", 1500, -100);
+            CompteClient compte2 = new CompteClient(4815162343, "Octavia", 2000, -50);
             CompteClient compte3 = new CompteClient(4815162344, "Finn", 1985, -500);
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
             CompteClient compte5 = new CompteClient();
 
+<<<<<<< Updated upstream
             
+=======
+>>>>>>> Stashed changes
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();
@@ -132,6 +138,67 @@ namespace ConsoleAppCompteBancaire
                         flag = false;
                     }
                 } while (flag == false);
+            }
+
+            // Implémentez le constructeur et les deux méthodes AjouterCompte.Attention une des méthodes est privé!
+            // Ecrire la méthode ToString de la classe Banque qui réutilisera la méthode ToString de la classe Compte         
+
+            BNP.AjouterCompte(compte1);
+            BNP.AjouterCompte(compte2);
+            BNP.AjouterCompte(compte3);
+            BNP.AjouterCompte(compte4);
+            BNP.AjouterCompte(compte5);
+
+            Console.Write("\nVoulez-vous afficher les comptes de la banque ? O/N : ");
+            answer = Console.ReadLine();
+            if (answer.ToLower().Equals("o"))
+            {
+                bool ajout;
+                ajout = BNP.AjouterCompte(345, "test1", 888, -99);
+                ajout = BNP.AjouterCompte(123, "supertest", 1547, -544);
+
+                if (ajout)
+                    Console.WriteLine(BNP);
+                else
+                    Console.WriteLine("numero de compte existant, ajout impossible");
+            }
+            //Ecrire une méthode publique CompteSup de la classe Banque qui retourne le compte ayant solde maximum. Vous afficherez ce compte supérieur dans la console.
+            Console.Write("\nVoulez-vous comparer le Solde de deux comptes de la banque ? O/N : ");
+            answer = Console.ReadLine();
+            if (answer.ToLower().Equals("o"))
+            {
+                Console.WriteLine("\nLe compte ayant le solde le plus grand est : \n" + BNP.CompteSup());
+            }
+
+            //Ecrire une méthode RendCompte de la classe Banque qui retourne un compte en fonction de son numéro. La fonction retourne Null si le compte n'est pas trouvé.  
+            //Pour cela vous devrez ajouter éventuellement dans la classe Compte un accesseur public sur le numéro de compte.
+            Console.Write("\nVoulez-vous afficher un compte ? O/N : ");
+            answer = Console.ReadLine();
+            if (answer.ToLower().Equals("o"))
+            {
+                Console.Write("\nEntrez le numero du compte que vous voulez afficher : ");
+                long numAnswer = Convert.ToInt64(Console.ReadLine());
+                Console.Write("\n"+BNP.RendCompte(numAnswer));
+                if (BNP.RendCompte(numAnswer) == null)
+                    Console.WriteLine("Mauvaise saisie, dommage.\n");
+            }
+            //Ecrire une méthode qui va transférer une somme d'un compte vers un autre compte.
+            Console.Write("\nVoulez-vous transferer de l'argent vers un autre comptre de la banque ? O/N : ");
+            answer = Console.ReadLine();
+            if (answer.ToLower().Equals("o"))
+            {
+                Console.Write("\nIndiquez le numero du compte a debiter : \"4815162342\" \"4815162343\" \"4815162344\" : ");
+                long numAnswer = Convert.ToInt64(Console.ReadLine());
+                Console.Write("Indiquez le Numero du compte sujet au transfert : \"4815162345\" \"345\" \"123\" : ");
+                long numAnswer2 = Convert.ToInt64(Console.ReadLine());
+                Console.Write("Indiquez le montant a transferer (Solde actuel : " + compte1.Solde + ". Decouvert autorisé : " + compte1.DecouvertAutorise + " ) : ");
+                double num = Convert.ToDouble(Console.ReadLine());
+                if (BNP.TransfererBanque(numAnswer, numAnswer2, num))
+                {
+                    Console.WriteLine(BNP.RendCompte(numAnswer));
+                    Console.WriteLine(BNP.RendCompte(numAnswer2));
+                }
+                else Console.WriteLine("Transfert impossible");
             }
 
             Console.WriteLine("\n-------------------------------------------------------------------------------\n\n" +
