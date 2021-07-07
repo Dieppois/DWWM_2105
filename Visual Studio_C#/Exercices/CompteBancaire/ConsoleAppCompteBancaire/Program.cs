@@ -13,8 +13,23 @@ namespace ConsoleAppCompteBancaire
             CompteClient compte3 = new CompteClient(4815162344, "Finn", 1985, -500);
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
             CompteClient compte5 = new CompteClient();
+            Banque BNP = new Banque("BANQUE NATIONAL PARIS", "PARIS");
 
+
+            bool ajout;
+            ajout = BNP.AjouterCompte(345, "test1", 888, -99);
+            ajout = BNP.AjouterCompte(123,"supertest", 1547, -544);
             
+            if(ajout)
+            {
+                Console.WriteLine(BNP);
+
+            }
+            else
+            {
+                Console.WriteLine("numero de compte existant, ajout impossible");
+            }
+
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();

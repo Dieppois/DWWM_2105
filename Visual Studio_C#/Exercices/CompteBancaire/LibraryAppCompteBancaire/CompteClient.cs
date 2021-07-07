@@ -1,5 +1,5 @@
 ﻿using System;
-
+// package
 namespace LibraryAppCompteBancaire
 {
     // Class
@@ -48,17 +48,17 @@ namespace LibraryAppCompteBancaire
         // Methods
         public override string ToString()
         {
-            return "Numero : " + numero + "\nNom : " + nom + "\nSolde : " + solde + "\nLimite decouvert autorisé : " + decouvertAutorise;
+            return "Numero : " + Numero + "\nNom : " + Nom + "\nSolde : " + Solde + "\nLimite decouvert autorisé : " + DecouvertAutorise;
         }
         public void Crediter(double _montant)
         {
-            solde += _montant;
+            Solde += _montant;
         }
         public bool Debiter(double _montant)
         {
-            if (solde - decouvertAutorise >= _montant)
+            if (Solde - decouvertAutorise >= _montant)
             {
-                solde -= _montant;
+                Solde -= _montant;
                 return true;
             }
             return false;
@@ -74,7 +74,7 @@ namespace LibraryAppCompteBancaire
         }
         public bool Superieur(CompteClient _compteY)
         {
-            if (solde > _compteY.solde)
+            if (Solde > _compteY.solde)
             {
                 return true;
             }
