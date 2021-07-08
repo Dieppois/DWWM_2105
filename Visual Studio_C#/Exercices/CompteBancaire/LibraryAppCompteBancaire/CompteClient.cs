@@ -15,7 +15,7 @@ namespace LibraryAppCompteBancaire
         public long Numero
         {
             get { return numero; }
-          set { numero = value; }
+            set { numero = value; }
         }
         public string Nom
         {
