@@ -52,6 +52,7 @@ namespace ClassLibraryFraction
         }
         public void Inverse()
         {
+           
             int temp = Numerateur;
             Numerateur = Denominateur;
             Denominateur = temp;
