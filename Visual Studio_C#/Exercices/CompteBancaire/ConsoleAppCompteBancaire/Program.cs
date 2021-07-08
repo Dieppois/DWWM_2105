@@ -17,10 +17,6 @@ namespace ConsoleAppCompteBancaire
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
             CompteClient compte5 = new CompteClient();
 
-<<<<<<< Updated upstream
-            
-=======
->>>>>>> Stashed changes
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();
@@ -193,12 +189,12 @@ namespace ConsoleAppCompteBancaire
                 long numAnswer2 = Convert.ToInt64(Console.ReadLine());
                 Console.Write("Indiquez le montant a transferer (Solde actuel : " + compte1.Solde + ". Decouvert autorisé : " + compte1.DecouvertAutorise + " ) : ");
                 double num = Convert.ToDouble(Console.ReadLine());
-                if (BNP.TransfererBanque(numAnswer, numAnswer2, num))
+                if (BNP.Virement(numAnswer, numAnswer2, num, out answer))
                 {
                     Console.WriteLine(BNP.RendCompte(numAnswer));
                     Console.WriteLine(BNP.RendCompte(numAnswer2));
                 }
-                else Console.WriteLine("Transfert impossible");
+                else Console.WriteLine(answer);
             }
 
             Console.WriteLine("\n-------------------------------------------------------------------------------\n\n" +
