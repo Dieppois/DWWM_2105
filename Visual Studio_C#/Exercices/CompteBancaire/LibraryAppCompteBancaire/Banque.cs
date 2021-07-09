@@ -96,17 +96,6 @@ namespace LibraryAppCompteBancaire
             else _message = "Le numero du compte débiteur est erroné";
             return false;
         }
-        public CompteClient RendCompte2(long _numeroCompte)
-        {
-            for (int i = 0; i < this.nbComptes; i++)
-            {
-                if (lesComptes[i].Numero == _numeroCompte)
-                {
-                    return lesComptes[i];
-                }
-            }
-            return null;
-        }
         public CompteClient CompteSup2()
         {
             CompteClient comptemax = this.lesComptes[0];
@@ -119,8 +108,19 @@ namespace LibraryAppCompteBancaire
 
             }
             return comptemax;
-        }//end Banque
-
-}//end namespace System
+        }
+        public CompteClient RendCompte2(long _numeroCompte)
+        {
+            for (int i = 0; i < this.nbComptes; i++)
+            {
+                if (lesComptes[i].Numero == _numeroCompte)
+                {
+                    return lesComptes[i];
+                }
+            }
+            return null;
+        }
+    }
+}
 
 
