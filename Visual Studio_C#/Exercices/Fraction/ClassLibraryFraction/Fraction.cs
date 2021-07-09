@@ -37,6 +37,10 @@ namespace ClassLibraryFraction
             this.Denominateur = 1;
         }
         // Methods
+        private float GetValue()
+        {
+            return (float)this.Numerateur/(float)this.Denominateur;
+        }
         public override string ToString()
         {
             if (Numerateur == 0)
@@ -56,19 +60,25 @@ namespace ClassLibraryFraction
             Numerateur = Denominateur;
             Denominateur = temp;
         }
-        public bool SuperieurA(Fraction _autreFraction)
+        public string SuperieurA(Fraction _autreFraction)
         {
-            if ((Numerateur / Denominateur) > (_autreFraction.Numerateur / _autreFraction.Denominateur))
-                return true;
+            if (this.GetValue() > _autreFraction.GetValue())
+                return ToString() + " est supérieur à " + _autreFraction.ToString();
+
+            else if (this.GetValue() < _autreFraction.GetValue())
+                return ToString() + " n'est pas supérieur à " + _autreFraction.ToString();
             else
-                return false;
+                return ToString() + " n'est pas supérieur à " + _autreFraction.ToString();
         }
-        public bool EgalA(Fraction _autreFraction)
+        public string EgalA(Fraction _autreFraction)
         {
-            if ((Numerateur / Denominateur) == (_autreFraction.Numerateur / _autreFraction.Denominateur))
-                return true;
+            if (this.GetValue() == _autreFraction.GetValue())
+                return ToString() + " est égal à " + _autreFraction.ToString();
+
+            else if (this.GetValue() > _autreFraction.GetValue())
+                return ToString() + " n'est pas égal à " + _autreFraction.ToString();
             else
-                return false;
+                return ToString() + " n'est pas égal à " + _autreFraction.ToString();
         }
         private int GetPgcd()
         {
@@ -96,8 +106,33 @@ namespace ClassLibraryFraction
         }
         public void Reduire()
         {
-            this.Numerateur = Numerateur / GetPgcd();
-            this.Denominateur = Denominateur / GetPgcd();
+                this.Numerateur = Numerateur / GetPgcd();
+                this.Denominateur = Denominateur / GetPgcd();
         }
+
+        public Fraction Plus(Fraction _autreFraction)
+        {
+            return new Fraction((this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur),
+                                           this.Denominateur * _autreFraction.Denominateur);
+        }
+        public Fraction Moins(Fraction _autreFraction)
+        {
+            return new Fraction((this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur),
+                                           this.Denominateur * _autreFraction.Denominateur);
+        }
+        public Fraction Multiplie(Fraction _autreFraction)
+        {
+            return new Fraction(this.Numerateur * _autreFraction.Numerateur,
+                                           this.Denominateur * _autreFraction.Denominateur);
+        }
+        public Fraction Divise(Fraction _autreFraction)
+        {
+            _autreFraction.Inverse();
+            return Multiplie(_autreFraction);
+        }
+
+
+
+
     }
 }
