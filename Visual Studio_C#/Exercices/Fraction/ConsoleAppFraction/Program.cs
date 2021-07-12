@@ -8,10 +8,10 @@ namespace ConsoleAppFraction
         static void Main(string[] args)
         {
             String answer;
-            Fraction f1 = new Fraction(60, 4);
-            Fraction f2 = new Fraction(80, 5);
+            Fraction f1 = new Fraction(18, 12);
+            Fraction f2 = new Fraction(2, 12);
             Fraction f3 = new Fraction(9);
-
+      
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous afficher les fractions ? O/N : ");
             answer = Console.ReadLine();
@@ -63,7 +63,9 @@ namespace ConsoleAppFraction
             if (answer.ToLower().Equals("o"))
             {
                 Console.WriteLine(f1);
+                int test = f1.GetPgcd();
                 f1.Reduire();
+                Console.WriteLine(test);
                 Console.WriteLine(f1);
             }
 
@@ -103,6 +105,18 @@ namespace ConsoleAppFraction
                 Console.WriteLine(f1.Divise(f2).ToString());
             }
 
+            //Surcharge d’opérateur: permettre au codeur d’écrire f1 + f2 au lieu de f1.Plus(f2)
+            Console.Write("Voulez-vous additioner deux fractions ? O/N : ");
+            answer = Console.ReadLine();
+            if (answer.ToLower().Equals("o"))
+            {
+                Console.Write(f1 + " + " + f2 + " = ");
+                Console.WriteLine(f1 + f2);
+                Fraction f4 = f1 + f2;
+                f4.Reduire();
+                Console.WriteLine(f4);
+
+            }
 
 
 

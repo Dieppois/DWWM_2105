@@ -17,6 +17,12 @@ namespace ConsoleAppCompteBancaire
             CompteClient compte4 = new CompteClient(4815162345, "Clark", 1007, -103);
             CompteClient compte5 = new CompteClient();
 
+            Compte_Remu Dupond = new Compte_Remu(007, "James", 1000, 0, 14, 02, 2020);
+            DateTime jourcourant = DateTime.Today;
+       
+            Console.WriteLine(Dupond);
+            Console.WriteLine(" Les gains annuel sont à la date du jour : " + Dupond.Calculer_Interet(jourcourant));
+
             // Donner une représentation textuel de toutes ses informations
             Console.Write("Voulez-vous consulter votre compte ? O/N : ");
             answer = Console.ReadLine();

@@ -46,7 +46,7 @@ namespace ClassLibraryFraction
             if (Numerateur == 0)
                 return "0";
             else if (Numerateur % Denominateur == 0)
-                return "" + Numerateur / Denominateur;
+                return ""+(Numerateur / Denominateur);
             else
                 return Numerateur + "/" + Denominateur;
         }
@@ -80,7 +80,7 @@ namespace ClassLibraryFraction
             else
                 return ToString() + " n'est pas égal à " + _autreFraction.ToString();
         }
-        private int GetPgcd()
+        public int GetPgcd()
         {
             int a = this.Numerateur;
             int b = this.Denominateur;
@@ -106,8 +106,18 @@ namespace ClassLibraryFraction
         }
         public void Reduire()
         {
-                this.Numerateur = Numerateur / GetPgcd();
-                this.Denominateur = Denominateur / GetPgcd();
+            int test = GetPgcd();
+            if (this.Numerateur < 0 && this.Denominateur < 0)
+            {
+                this.Numerateur = +Numerateur / test;
+                this.Denominateur = +Denominateur / test;
+            }
+            else
+            {
+                this.Numerateur = Numerateur / test;
+                this.Denominateur = Denominateur / test;
+            }
+
         }
 
         public Fraction Plus(Fraction _autreFraction)
@@ -130,8 +140,11 @@ namespace ClassLibraryFraction
             _autreFraction.Inverse();
             return Multiplie(_autreFraction);
         }
-
-
+        public static Fraction operator +(Fraction _1, Fraction _2)
+        {
+            return new Fraction((_1.Numerateur * _2.Denominateur + _2.Numerateur * _1.Denominateur),
+                                           _1.Denominateur * _2.Denominateur);
+        }
 
 
     }
