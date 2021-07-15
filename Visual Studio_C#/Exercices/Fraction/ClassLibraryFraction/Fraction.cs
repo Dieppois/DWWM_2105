@@ -13,6 +13,7 @@ namespace ClassLibraryFraction
         {
             get { return numerateur; }
             set { numerateur = value; }
+
         }
         public int Denominateur
         {
@@ -26,27 +27,36 @@ namespace ClassLibraryFraction
             this.Numerateur = 0;
             this.Denominateur = 1;
         }
-        public Fraction(int _numerateur, int _denominateur)
-        {
-            this.Numerateur = _numerateur;
-            this.Denominateur = _denominateur;
-        }
         public Fraction(int _numerateur)
         {
             this.Numerateur = _numerateur;
             this.Denominateur = 1;
         }
-        // Methods
-        private float GetValue()
+        public Fraction(int _numerateur, int _denominateur)
         {
-            return (float)this.Numerateur/(float)this.Denominateur;
+            try
+            {
+                this.Numerateur = _numerateur;
+                this.Denominateur = _denominateur;
+                double res = _numerateur / _denominateur;
+
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        // Methods
+        private double GetValue()
+        {
+            return (double)this.Numerateur / (double)this.Denominateur;
         }
         public override string ToString()
         {
             if (Numerateur == 0)
                 return "0";
             else if (Numerateur % Denominateur == 0)
-                return ""+(Numerateur / Denominateur);
+                return "" + (Numerateur / Denominateur);
             else
                 return Numerateur + "/" + Denominateur;
         }
@@ -107,45 +117,56 @@ namespace ClassLibraryFraction
         public void Reduire()
         {
             int test = GetPgcd();
-            if (this.Numerateur < 0 && this.Denominateur < 0)
-            {
-                this.Numerateur = +Numerateur / test;
-                this.Denominateur = +Denominateur / test;
-            }
-            else
-            {
-                this.Numerateur = Numerateur / test;
-                this.Denominateur = Denominateur / test;
-            }
 
+            this.Numerateur = Numerateur / test;
+            this.Denominateur = Denominateur / test;
+
+            if (Denominateur < 0)
+            {
+                this.Oppose();
+            }
         }
 
         public Fraction Plus(Fraction _autreFraction)
         {
-            return new Fraction((this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur),
-                                           this.Denominateur * _autreFraction.Denominateur);
+            Fraction result = new Fraction((this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur),
+                                          this.Denominateur * _autreFraction.Denominateur);
+            result.Reduire();
+            return result;
+
         }
         public Fraction Moins(Fraction _autreFraction)
         {
-            return new Fraction((this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur),
+            Fraction result = new Fraction((this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur),
                                            this.Denominateur * _autreFraction.Denominateur);
+            result.Reduire();
+            return result;
         }
         public Fraction Multiplie(Fraction _autreFraction)
         {
-            return new Fraction(this.Numerateur * _autreFraction.Numerateur,
+            Fraction result = new Fraction(this.Numerateur * _autreFraction.Numerateur,
                                            this.Denominateur * _autreFraction.Denominateur);
+            result.Reduire();
+            return result;
+
         }
         public Fraction Divise(Fraction _autreFraction)
         {
             _autreFraction.Inverse();
-            return Multiplie(_autreFraction);
+            Fraction result = Multiplie(_autreFraction);
+            result.Reduire();
+            return result;
+        }
+        public Fraction Puissance(int _puissance)
+        {
+            Fraction result = new Fraction(Convert.ToInt32(Math.Pow(this.Numerateur, _puissance)), Convert.ToInt32((Math.Pow(this.Denominateur, _puissance))));
+            result.Reduire();
+            return result;
         }
         public static Fraction operator +(Fraction _1, Fraction _2)
         {
-            return new Fraction((_1.Numerateur * _2.Denominateur + _2.Numerateur * _1.Denominateur),
+            return new Fraction(_1.Numerateur * _2.Denominateur + _2.Numerateur * _1.Denominateur,
                                            _1.Denominateur * _2.Denominateur);
         }
-
-
     }
 }

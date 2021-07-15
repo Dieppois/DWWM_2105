@@ -6,4 +6,8 @@
     <RootNamespace>_421</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary421\ClassLibraryJeu421.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,7 +18,7 @@ namespace LibraryAppCompteBancaire{
 		private DateTime date_Ouverture;
 		private List<double> tabSoldesCompte = new List<double>();
 
-		public Compte_Remu(long _numero, string _nom, double _solde, double _decouvertAutorise, int _jour, int _mois, int _annee) : base(_numero, _nom, _solde, _decouvertAutorise)
+		public Compte_Remu(long _numero, string _nom, double _solde, double _decouvertAutorise, int _jour, int _mois, int _annee) :base(_numero, _nom, _solde, _decouvertAutorise)
 		{
 			this.date_Ouverture = new DateTime(_annee, _mois, _jour);
 
