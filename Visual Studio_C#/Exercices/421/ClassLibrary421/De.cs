@@ -9,31 +9,21 @@ namespace ClassLibraryJeu421
     {
         // Attributes
         private int valeur;
-
+        
         // Properties
         public int Valeur { get => valeur; set => valeur = value; }
         
         // Constructors
         public De()
         {
-            this.Valeur = 0;
-            
+            this.Valeur = 0;            
         }
 
         // Methods
         public void Jeter()
         {
-                
-                
-                this.Valeur = Alea.Instance().Nouveau(1, 6);
-            Manche les3Des.Add(Valeur);
+            this.Valeur = Alea.Instance().Nouveau(1, 6);
         }
-
-
-
-
-
-
 
     }   
 

@@ -8,27 +8,26 @@ namespace ClassLibraryJeu421
     // Class
     public class Joueurs
     {
+      
         // Attributs
-        string joueur;
+        string nom;
         int score;
 
         // Properties 
 
         public int Score { get => score; set => score = value; }
-        public string Joueur { get => joueur; set => joueur = value; }
+        public string Nom { get => nom; set => nom = value; }
 
 
         // Constructors
         public Joueurs()
         {
-            this.Joueur = "???";
+            int compteur = 0;
+            compteur++;
+            this.Nom = "Joueur"+(compteur);
             this.Score = 0;
         }
-        public Joueurs(string _nom)
-        {
-            this.Joueur = _nom;
-            this.Score = 0;
-        }
+        
 
         // Methods
 

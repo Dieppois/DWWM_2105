@@ -6,16 +6,20 @@ namespace ConsoleAppJeu421
     {
         static void Main(string[] args)
         {
-            De de1 = new De();
-            De de2 = new De();
-            De de3 = new De();
 
-            Joueurs joueur1 = new Joueurs("Joueur1");
-            Joueurs joueur2 = new Joueurs("Joueur2");
-
+//jetez les des
             //jeu commence
-            //jetez les des
-            de1.Jeter();
+
+            Console.WriteLine("Jeu 421 commence");
+            Partie partie1 = new Partie();
+            Console.WriteLine("Vous êtes le Joueur 1. Le Joueur 2 est l'ordinateur");
+            Manche manche1 = new Manche();
+            Console.WriteLine("Lancez les des ?");
+            bool d1 = true;
+            bool d2 = true;
+            bool d3 = true;
+            manche1.Lancer(d1, d2, d3);
+            Console.ReadLine();
         }
     }
 }

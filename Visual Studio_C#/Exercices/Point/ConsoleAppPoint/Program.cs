@@ -16,6 +16,14 @@ namespace ConsoleAppPoint
 
             do
             {
+                // Permuter ses coordonnées ( symétrie par rapport à la bissectrice des axes Ox, Oy ).
+                Console.Write("\nVoulez-vous définir la distance entre deux points ? O/N : ");
+                answer = Console.ReadLine();
+                if (answer.ToLower().Equals("o"))
+                {
+                    Console.WriteLine(point1.MesureDistance(point2));
+                }
+
                 // Renvoyer une représentation textuelle en indiquant les valeurs de ses coordonnées.
                 Console.Write("Voulez-vous montrer l'emplacement du point(1) ? O/N : ");
                 answer = Console.ReadLine();
@@ -86,6 +94,16 @@ namespace ConsoleAppPoint
                     point1.Permuter();
                     Console.WriteLine(point1.ToString());
                 }
+
+                // Permuter ses coordonnées ( symétrie par rapport à la bissectrice des axes Ox, Oy ).
+                Console.Write("\nVoulez-vous définir la distance entre deux points ? O/N : ");
+                answer = Console.ReadLine();
+                if (answer.ToLower().Equals("o"))
+                {
+                    Console.WriteLine(point1.MesureDistance(point2)); 
+                }
+
+
 
                 Console.Write("\nVoulez-vous recommencer ? O/N : ");
                 answer = Console.ReadLine();

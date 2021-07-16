@@ -58,8 +58,8 @@ namespace ClassLibraryPoint
         // Se déplacer en modifiant abscisse et ordonnée.
         public void Deplacer(float _abscisseX, float _ordonneeY)
         {
-            abscisseX = _abscisseX;
-            ordonneeY = _ordonneeY;
+            abscisseX += _abscisseX;
+            ordonneeY += _ordonneeY;
         }
         //Construire un point symétrique par rapport à l'axe des ordonnées.
         public Point SymetrieAxeOrdonnee()
@@ -80,5 +80,11 @@ namespace ClassLibraryPoint
             abscisseX = ordonneeY;
             ordonneeY = temp;
         }
+
+        public double MesureDistance(Point _pointB)
+        {
+            return (Math.Sqrt(Math.Pow(this.AbscisseX, 2) + Math.Pow(this.OrdonneeY, 2)))- (Math.Sqrt(Math.Pow(_pointB.AbscisseX, 2) + Math.Pow(_pointB.OrdonneeY, 2))); 
+        }
+
     }
 }
