@@ -11,9 +11,9 @@ namespace ClassLibraryJeu421
         De de1 = new De();
         De de2 = new De();
         De de3 = new De();
-        Joueurs joueur1 = new Joueurs();
-        Joueurs joueur2 = new Joueurs();
-        public int[] tabDes = new int[3];
+        public Joueurs joueur1 = new Joueurs();
+        public Joueurs joueur2 = new Joueurs();
+        public int[] tabDes = new int[2];
         
         // Constructors
         public Manche()
@@ -35,21 +35,30 @@ namespace ClassLibraryJeu421
         {
             if (_un == true)
             de1.Jeter();
-            else if (_deux == true)
-            de2.Jeter();
-            else if (_trois == true)
-            de3.Jeter();
-
             tabDes[0] = de1.Valeur;
+            if (_deux == true)
+            de2.Jeter();
             tabDes[1] = de2.Valeur;
+            if (_trois == true)
+            de3.Jeter();
             tabDes[2] = de3.Valeur;
 
             string resultat = "";
             for (int i = 0; i < tabDes.Length; i++)
             {
+                if (tabDes[i] != 0)
                 resultat += "Valeur du de " + (i + 1) + " = " + tabDes[i] + "\n";
             }
             return resultat;
         }
+
+        public bool Gagner()
+        {
+            Array.Sort(tabDes);
+            if (this.tabDes[0] == 1 && this.tabDes[1] == 2 && this.tabDes[2] == 4)
+                return true;
+            return false;
+        }
+
     }
 }

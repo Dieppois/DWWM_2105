@@ -81,9 +81,9 @@ namespace ClassLibraryPoint
             ordonneeY = temp;
         }
 
-        public double MesureDistance(Point _pointB)
+        public static double MesureDistance(Point _pointA, Point _pointB)
         {
-            return (Math.Sqrt(Math.Pow(this.AbscisseX, 2) + Math.Pow(this.OrdonneeY, 2)))- (Math.Sqrt(Math.Pow(_pointB.AbscisseX, 2) + Math.Pow(_pointB.OrdonneeY, 2))); 
+            return Math.Round(Math.Sqrt(Math.Pow((_pointB.AbscisseX - _pointA.AbscisseX), 2) + Math.Pow((_pointB.OrdonneeY - _pointA.OrdonneeY), 2)),3); 
         }
 
     }

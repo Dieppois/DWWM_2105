@@ -8,8 +8,8 @@ namespace ConsoleAppPoint
         static void Main(string[] args)
         {
             String answer;
-            Point point1 = new Point("point(1)", 5, 8);
-            Point point2 = new Point("test", 5, 5);
+            Point point1 = new Point("point(1)", -7, -7);
+            Point point2 = new Point("test", 7, 7);
             Point point3 = new Point();
             Point point4 = new Point();
             Point point5 = new Point();
@@ -21,7 +21,7 @@ namespace ConsoleAppPoint
                 answer = Console.ReadLine();
                 if (answer.ToLower().Equals("o"))
                 {
-                    Console.WriteLine(point1.MesureDistance(point2));
+                   // Console.WriteLine(point1.MesureDistance(point2));
                 }
 
                 // Renvoyer une représentation textuelle en indiquant les valeurs de ses coordonnées.
@@ -100,7 +100,7 @@ namespace ConsoleAppPoint
                 answer = Console.ReadLine();
                 if (answer.ToLower().Equals("o"))
                 {
-                    Console.WriteLine(point1.MesureDistance(point2)); 
+                    Console.WriteLine(Point.MesureDistance(point1, point2));
                 }
 
 
