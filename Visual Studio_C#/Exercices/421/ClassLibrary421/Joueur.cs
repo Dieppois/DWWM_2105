@@ -11,6 +11,7 @@ namespace ClassLibraryJeu421
         // Attributs
         string nom;
         int score;
+        public static int compteur = 0;
 
         // Properties 
         public int Score { get => score; set => score = value; }
@@ -19,9 +20,8 @@ namespace ClassLibraryJeu421
         // Constructors
         public Joueurs()
         {
-            int compteur = 0;
             compteur++;
-            this.Nom = "Joueur" + (compteur);
+            this.Nom = "Joueur " + compteur;
             this.Score = 30;
         }
     }

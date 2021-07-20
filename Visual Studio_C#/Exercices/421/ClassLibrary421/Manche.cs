@@ -28,7 +28,7 @@ namespace ClassLibraryJeu421
         // Methods
         public string AfficherScore()
         {
-            return "Le score du " + joueur1.Nom + " est de " + joueur1.Score + "\nLe score du " + joueur2.Nom + " est de " + joueur2.Score;
+            return " Le score du " + joueur1.Nom + " est de " + joueur1.Score + " / Le score du " + joueur2.Nom + " est de " + joueur2.Score;
         }
 
         public string Lancer(bool _un, bool _deux, bool _trois)
@@ -59,6 +59,5 @@ namespace ClassLibraryJeu421
                 return true;
             return false;
         }
-
     }
 }
