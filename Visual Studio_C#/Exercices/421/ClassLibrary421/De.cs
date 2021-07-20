@@ -5,18 +5,18 @@ using ClassLibraryJeu421;
 
 namespace ClassLibraryJeu421
 {
-    public class De 
+    public class De
     {
         // Attributes
         private int valeur;
-        
+
         // Properties
         public int Valeur { get => valeur; set => valeur = value; }
-        
+
         // Constructors
         public De()
         {
-            this.Valeur = 0;            
+            this.Valeur = 0;
         }
 
         // Methods
@@ -25,9 +25,9 @@ namespace ClassLibraryJeu421
             this.Valeur = Alea.Instance().Nouveau(1, 6);
         }
 
-    }   
+    }
 
 }
 
- 
- 
+
+

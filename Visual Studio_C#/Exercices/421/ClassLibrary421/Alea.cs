@@ -4,24 +4,25 @@ using System.Text;
 
 namespace ClassLibraryJeu421
 {
-        public class Alea : Random
-        {
-            private static Alea monAlea = null;
+    public class Alea : Random
+    {
+        private static Alea monAlea = null;
 
-            private Alea()
+        private Alea()
+        {
+        }
+        // design patern : singleton
+        public static Alea Instance()
+        {
+            if (monAlea == null)
             {
+                monAlea = new Alea();
             }
-            public static Alea Instance()
-            {
-                if (monAlea == null)
-                {
-                    monAlea = new Alea();
-                }
-                return monAlea;
-            }
-            public int Nouveau(int valMin, int valMax)
-            {
-                return base.Next(valMin, valMax + 1);
-            }
-        }    
+            return monAlea;
+        }
+        public int Nouveau(int valMin, int valMax)
+        {
+            return base.Next(valMin, valMax + 1);
+        }
+    }
 }

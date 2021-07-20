@@ -21,24 +21,8 @@ namespace ClassLibraryJeu421
         {
             int compteur = 0;
             compteur++;
-            this.Nom = "Joueur"+(compteur);
+            this.Nom = "Joueur" + (compteur);
             this.Score = 30;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
