@@ -8,42 +8,87 @@ namespace ClassLibraryJeu421
     public class Manche
     {
         // Attributs
-        De de1 = new De();
-        De de2 = new De();
-        De de3 = new De();
-        public Joueurs joueur1 = new Joueurs();
-        public Joueurs joueur2 = new Joueurs();
-        public int[] tabDes = new int[3];
+        De de;
+        Joueur joueur1;
+        Joueur joueur2;
+        public int[] tabDes;
 
         // Constructors
         public Manche()
         {
-            De de1 = new De();
-            De de2 = new De();
-            De de3 = new De();
-            Joueurs joueur1 = new Joueurs();
-            Joueurs joueur2 = new Joueurs();
+            tabDes = new int[3];
+            de = new De();
+            joueur1 = new Joueur();
+            joueur2 = new Joueur();
         }
 
         // Methods
-        public string AfficherScore()
+        public string Lancer()
         {
-            return " Le score du " + joueur1.Nom + " est de " + joueur1.Score + " / Le score du " + joueur2.Nom + " est de " + joueur2.Score;
+            de.Jeter();
+            tabDes[0] = de.Valeur;
+            de.Jeter();
+            tabDes[1] = de.Valeur;
+            de.Jeter();
+            tabDes[2] = de.Valeur;
+            return AfficherLancer();
         }
 
-        public string Lancer(bool _un, bool _deux, bool _trois)
+        public string Relancer(bool _un, bool _deux, bool _quatre)
         {
-            if (_un == true)
-                de1.Jeter();
-            tabDes[0] = de1.Valeur;
-            if (_deux == true)
-                de2.Jeter();
-            tabDes[1] = de2.Valeur;
-            if (_trois == true)
-                de3.Jeter();
-            tabDes[2] = de3.Valeur;
+            if (!_un)
+            {
+                de.Jeter();
+                tabDes[0] = de.Valeur;
+            }
+            if (!_deux)
+            {
+                de.Jeter();
+                tabDes[1] = de.Valeur;
+            }
+            if (!_quatre)
+            {
+                de.Jeter();
+                tabDes[2] = de.Valeur;
+            }
+            return AfficherLancer();
+        }
 
+        public string MancheOrdinateur()
+        {
             string resultat = "";
+            resultat += Lancer();
+            int temp = 0;
+            int compteur = 1;
+            bool un = false;
+            bool deux = false;
+            bool quatre = false;
+
+            while (compteur <=2)
+            {
+                compteur++;
+                if (tabDes[2] == 1)
+                    un = true;
+                if (tabDes[1] == 2)
+                    deux = true;
+                if (tabDes[0] == 4)
+                    quatre = true;
+                if (!deux && !quatre && tabDes[2] == 2)
+                    temp = tabDes[2];
+                tabDes[2] = tabDes[1];
+                tabDes[1] = temp;
+                deux = true;
+
+                if (!un || !deux || !quatre)
+                    resultat += Relancer(un, deux, quatre);
+            }
+            return resultat;  
+        }
+
+        public string AfficherLancer()
+        {
+            Array.Sort(tabDes);
+            string resultat = " ";
             for (int i = 0; i < tabDes.Length; i++)
             {
                 if (tabDes[i] != 0)
@@ -51,10 +96,9 @@ namespace ClassLibraryJeu421
             }
             return resultat;
         }
-
+        
         public bool Gagner()
-        {
-            Array.Sort(tabDes);
+        { 
             if (this.tabDes[0] == 1 && this.tabDes[1] == 2 && this.tabDes[2] == 4)
                 return true;
             return false;

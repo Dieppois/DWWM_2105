@@ -5,24 +5,28 @@ using System.Text;
 // Package
 namespace ClassLibraryJeu421
 {
-    // Class
-    public class Joueurs
+// Class
+    class Joueur
     {
-        // Attributs
+// Attributs
+        static int compteur;
         string nom;
         int score;
-        public static int compteur = 0;
 
         // Properties 
+        public string Nom { get => nom; }
         public int Score { get => score; set => score = value; }
-        public string Nom { get => nom; set => nom = value; }
+        public static int Compteur { get => compteur; set => compteur = value; }
+
+
 
         // Constructors
-        public Joueurs()
+        public Joueur()
         {
-            compteur++;
-            this.Nom = "Joueur " + compteur;
-            this.Score = 30;
+            Compteur ++;
+            this.nom = "Joueur " + Compteur;
+            this.Score = Partie.NbLancer * 10;
         }
+        // Methods
     }
 }
