@@ -10,49 +10,45 @@ namespace ClassLibraryJeu421
 
     {
         // Attributs
-        static int nbLancerMax;
-        De de;
-        Joueur joueur1;
-        Joueur joueur2;
+        int nbMancheMax;
+        int scoreMax;
+        
+        Manche manche;
+        
         // Properties 
-        public int Score { get => score; set => score = value; }
-        public string Nom { get => nom; set => nom = value; }
-        public static int NbLancer { get => nbLancer; set => nbLancer = value; }
+        public int NbMancheMax { get => nbMancheMax; set => nbMancheMax = value; }
+        public int ScoreMax { get => scoreMax; set => scoreMax = value; }
+        
+       public Manche Manche { get => manche; set => manche = value; }
 
         // Constructors
         public Partie()
         {
-            this.NbLancer = 3;
-            this.Nom = "Joueur " + compteur;
-            this.Score = 30;
+            this.NbMancheMax = 10;
+            this.ScoreMax = 100;
+            
+            this.Manche = new Manche();
         }
 
         // Methods
         public string AfficherScore()
         {
-            return " Le score du " + joueur.Nom + " est de " + joueur1.Score + " / Le score du " + joueur2.Nom + " est de " + joueur2.Score;
+            return " Le score du " + this.Manche.Joueur1.Nom + " est de " + this.Manche.Joueur1.Score + 
+                ". Le score du " + this.Manche.Joueur2.Nom + " est de " + this.Manche.Joueur2.Score;
         }
-        public void NouveauLancer()
-        { 
-        new Manche =
 
-
-
-
-
-        public Manche TourOrdinateur()
+        public int PartieGagnante()
         {
-            bool un = true;
-            bool deux = true;
-            bool trois = true;
-            Manche temp = new Manche();
-            temp.Lancer(un, deux, trois);
-
-
-
-
-
+            int flag = 0;
+            if (Manche.Joueur1.Score >= ScoreMax)
+            {
+                flag = 1;
+            }
+            else if (Manche.Joueur2.Score >= ScoreMax)
+            {
+                flag = 2;
+            }
+            return flag;
         }
-            
     }
 }

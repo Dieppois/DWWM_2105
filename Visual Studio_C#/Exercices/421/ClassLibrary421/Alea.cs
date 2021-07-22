@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ClassLibraryJeu421
 {
+    // design pattern : singleton
     public class Alea : Random
     {
         private static Alea monAlea = null;
@@ -11,7 +12,6 @@ namespace ClassLibraryJeu421
         private Alea()
         {
         }
-        // design patern : singleton
         public static Alea Instance()
         {
             if (monAlea == null)

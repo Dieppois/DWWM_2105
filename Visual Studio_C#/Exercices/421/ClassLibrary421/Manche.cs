@@ -8,29 +8,36 @@ namespace ClassLibraryJeu421
     public class Manche
     {
         // Attributs
+        int[] tabDes;
         De de;
         Joueur joueur1;
         Joueur joueur2;
-        public int[] tabDes;
+
+        // Property
+        public int[] TabDes { get => tabDes; set => tabDes = value; }
+        public De De { get => de; set => de = value; }
+        public Joueur Joueur1 { get => joueur1; set => joueur1 = value; }
+        public Joueur Joueur2 { get => joueur2; set => joueur2 = value; }
 
         // Constructors
         public Manche()
         {
-            tabDes = new int[3];
-            de = new De();
-            joueur1 = new Joueur();
-            joueur2 = new Joueur();
+            this.TabDes = new int[3];
+            this.De = new De();
+            this.Joueur1 = new Joueur();
+            this.Joueur2 = new Joueur();
         }
 
         // Methods
         public string Lancer()
         {
-            de.Jeter();
-            tabDes[0] = de.Valeur;
-            de.Jeter();
-            tabDes[1] = de.Valeur;
-            de.Jeter();
-            tabDes[2] = de.Valeur;
+            this.De.Jeter();
+            TabDes[0] = this.De.Valeur;
+            this.De.Jeter();
+            TabDes[1] = this.De.Valeur;
+            this.De.Jeter();
+            TabDes[2] = this.De.Valeur;
+
             return AfficherLancer();
         }
 
@@ -38,70 +45,59 @@ namespace ClassLibraryJeu421
         {
             if (!_un)
             {
-                de.Jeter();
-                tabDes[0] = de.Valeur;
+                De.Jeter();
+                TabDes[2] = De.Valeur;
             }
             if (!_deux)
             {
-                de.Jeter();
-                tabDes[1] = de.Valeur;
+                De.Jeter();
+                TabDes[1] = De.Valeur;
             }
             if (!_quatre)
             {
-                de.Jeter();
-                tabDes[2] = de.Valeur;
+                De.Jeter();
+                TabDes[0] = De.Valeur;
             }
             return AfficherLancer();
         }
-
-        public string MancheOrdinateur()
-        {
-            string resultat = "";
-            resultat += Lancer();
-            int temp = 0;
-            int compteur = 1;
-            bool un = false;
-            bool deux = false;
-            bool quatre = false;
-
-            while (compteur <=2)
-            {
-                compteur++;
-                if (tabDes[2] == 1)
-                    un = true;
-                if (tabDes[1] == 2)
-                    deux = true;
-                if (tabDes[0] == 4)
-                    quatre = true;
-                if (!deux && !quatre && tabDes[2] == 2)
-                    temp = tabDes[2];
-                tabDes[2] = tabDes[1];
-                tabDes[1] = temp;
-                deux = true;
-
-                if (!un || !deux || !quatre)
-                    resultat += Relancer(un, deux, quatre);
-            }
-            return resultat;  
-        }
-
         public string AfficherLancer()
         {
-            Array.Sort(tabDes);
-            string resultat = " ";
-            for (int i = 0; i < tabDes.Length; i++)
+            int compteur =0;
+            Array.Sort(TabDes);
+            Array.Reverse(TabDes);
+            string resultat = "";
+            for (int i = 2; i >= 0; i--)
             {
-                if (tabDes[i] != 0)
-                    resultat += "Valeur du de " + (i + 1) + " = " + tabDes[i] + "\n";
+                compteur++;
+                resultat += "Valeur du de " + (compteur) + " = " + TabDes[i] + "\n";
             }
             return resultat;
         }
-        
-        public bool Gagner()
-        { 
-            if (this.tabDes[0] == 1 && this.tabDes[1] == 2 && this.tabDes[2] == 4)
+
+        public bool MancheGagnante()
+        {
+            if (this.TabDes[0] == 4 && this.TabDes[1] == 2 && this.TabDes[2] == 1)
                 return true;
-            return false;
+            else
+                return false;
+        }
+
+        public string MajPoint(Joueur _joueur)
+        {
+            string result;
+            if (MancheGagnante())
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                _joueur.Score += 30;
+                result = _joueur.Nom + " a gagné 30 points";
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                _joueur.Score -= 10;
+                result = _joueur.Nom + " a perdue 10 points";
+            }
+            return result;
         }
     }
 }

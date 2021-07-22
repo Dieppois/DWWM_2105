@@ -5,12 +5,12 @@ using System.Text;
 // Package
 namespace ClassLibraryJeu421
 {
-// Class
-    class Joueur
+    // Class
+    public class Joueur 
     {
-// Attributs
+        // Attributs
         static int compteur;
-        string nom;
+        readonly string nom;
         int score;
 
         // Properties 
@@ -18,15 +18,13 @@ namespace ClassLibraryJeu421
         public int Score { get => score; set => score = value; }
         public static int Compteur { get => compteur; set => compteur = value; }
 
-
-
         // Constructors
         public Joueur()
         {
-            Compteur ++;
+            Compteur++;
             this.nom = "Joueur " + Compteur;
-            this.Score = Partie.NbLancer * 10;
+            this.Score = 0;
         }
-        // Methods
+
     }
 }
