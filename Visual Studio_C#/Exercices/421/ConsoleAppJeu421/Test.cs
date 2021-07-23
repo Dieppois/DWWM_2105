@@ -53,7 +53,7 @@ namespace ConsoleAppJeu421
                 Console.WriteLine(manche.MajPoint(manche.Joueur1));
                 Console.ResetColor();
 
-
+                Console.ReadLine();
                 compteurLance = 0;
                 Console.WriteLine("--------------------\nTour du Joueur 2\n--------------------");
                 Console.WriteLine("--------------------\nLe 1er Lancé : \n--------------------");
@@ -65,17 +65,29 @@ namespace ConsoleAppJeu421
                     un = deux = quatre = false;
                     string answer = "Raté ! Relancez un ou plusieurs dé(s).\nEntrez le(s) numero(s) du(des) dé(s) a remplacer, séparés d'un espace (1 / 2 / 3) : ";
 
-                    if (manche.TabDes[0] == 4) quatre = true;
-                    else if (manche.TabDes[0] == 2 && manche.TabDes[1] != 2) quatre = true;
-                    else answer += "1 ";
+                    if (manche.TabDes[2] == 4) quatre = true;
+                    else if (manche.TabDes[2] == 2 && manche.TabDes[1] != 2) quatre = true;
+                    else 
+                    {
+                        answer += "3 ";
+                        quatre = false;
+                    }
 
                     if (manche.TabDes[1] == 2) deux = true;
-                    else if (manche.TabDes[1] == 4 && manche.TabDes[0] != 4) deux = true;
-                    else answer += "2 ";
+                    else if (manche.TabDes[1] == 4 && manche.TabDes[2] != 4) deux = true;
+                    else
+                    {
+                        answer += "2 ";
+                        deux = false;
+                    }
 
-                    if (manche.TabDes[2] == 1) un = true;
-                    else if ((manche.TabDes[2] == 2 && manche.TabDes[1] != 2) || (manche.TabDes[2] == 4 && manche.TabDes[0] != 4)) un = true;
-                    else answer += "3";
+                        if (manche.TabDes[0] == 1) un = true;
+                    else if ((manche.TabDes[0] == 2 && manche.TabDes[1] != 2) || (manche.TabDes[0] == 4 && manche.TabDes[2] != 4)) un = true;
+                    else
+                    {
+                        answer += "1";
+                        un = false;
+                    }
 
                     Console.WriteLine(answer);
                     Console.WriteLine("--------------------\n" + compteurLance + "ièm Lancé : \n--------------------");

@@ -64,7 +64,7 @@ namespace ClassLibraryJeu421
         {
             int compteur =0;
             Array.Sort(TabDes);
-            Array.Reverse(TabDes);
+            //Array.Reverse(TabDes);
             string resultat = "";
             for (int i = 2; i >= 0; i--)
             {
