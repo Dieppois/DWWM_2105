@@ -1,28 +1,39 @@
 ﻿using System;
-////On doit pouvoir construire un objet 
-// en ne connaissant que le nom du sport
-// le type de sport peut-être indiqué ultérieurement.
-//2. L'encapsulation doit être mise en œuvre.
-//3. la méthode ToString() doit renvoyer :
-// le nom du sport est 
-// suivi du nom du sport
-// suivi de ce sport a pour type
-// suivi du contenu du type de sport.
 
+        // Package
 namespace ClassLibrarySport
 {
+        // Class
     public class Sport
     {
+        // Attributs
         private string strNomSport;
-        protected string strTypeSport;
+        private string strTypeSport;
+
+        // Properties 
+        public string StrNomSport { get => strNomSport; set => strNomSport = value; }
+        protected string StrTypeSport { get => strTypeSport; set => strTypeSport = value; }
+
+        // Constructors
+        public Sport(string _strNomSport)
+        {
+            this.strNomSport = _strNomSport;
+            this.strTypeSport = "";
+        }
         public Sport()
         {
-            string nomDuSport = Value;
-            // TODO : implement code
+            this.strNomSport = "Beach Volley";
+            this.strTypeSport = "";
         }
+
+        // Methods
         public override string ToString()
         {
-            return "Le nom du sport" + 
+            return "Le nom du sport est : " + this.strNomSport + "\nCe sport a pour type : " + this.strTypeSport;
         }
+
     }
+
 }
+
+

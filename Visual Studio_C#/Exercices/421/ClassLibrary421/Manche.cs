@@ -43,34 +43,39 @@ namespace ClassLibraryJeu421
 
         public string Relancer(bool _un, bool _deux, bool _quatre)
         {
-            if (!_un)
+            if (!_quatre)
             {
                 De.Jeter();
-                TabDes[2] = De.Valeur;
+                TabDes[0] = De.Valeur;
             }
             if (!_deux)
             {
                 De.Jeter();
                 TabDes[1] = De.Valeur;
             }
-            if (!_quatre)
+            if (!_un)
             {
                 De.Jeter();
-                TabDes[0] = De.Valeur;
+                TabDes[2] = De.Valeur;
             }
+
             return AfficherLancer();
         }
+
         public string AfficherLancer()
         {
-            int compteur =0;
             Array.Sort(TabDes);
-            //Array.Reverse(TabDes);
+            Array.Reverse(TabDes);
+           
+            int compteur = 0;
             string resultat = "";
-            for (int i = 2; i >= 0; i--)
+            
+            for (int i = 0; i <= 2; i++)
             {
                 compteur++;
                 resultat += "Valeur du de " + (compteur) + " = " + TabDes[i] + "\n";
             }
+
             return resultat;
         }
 

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppKiloutou", "ConsoleAppKiloutou\ConsoleAppKiloutou.csproj", "{6907F7B2-D5CC-480B-8501-C2166F8C769C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryVehicules", "ClassLibraryVehicules\ClassLibraryVehicules.csproj", "{D2F99E68-0982-4A21-9D0D-D58BF6BB563F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6907F7B2-D5CC-480B-8501-C2166F8C769C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6907F7B2-D5CC-480B-8501-C2166F8C769C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6907F7B2-D5CC-480B-8501-C2166F8C769C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6907F7B2-D5CC-480B-8501-C2166F8C769C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F99E68-0982-4A21-9D0D-D58BF6BB563F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F99E68-0982-4A21-9D0D-D58BF6BB563F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F99E68-0982-4A21-9D0D-D58BF6BB563F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F99E68-0982-4A21-9D0D-D58BF6BB563F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C8207BA-7596-4730-B014-DEE6FB6822B8}
+	EndGlobalSection
+EndGlobal

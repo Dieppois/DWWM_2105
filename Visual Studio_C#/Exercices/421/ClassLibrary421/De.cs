@@ -18,7 +18,6 @@ namespace ClassLibraryJeu421
         {
             this.Valeur = 0;
         }
-
         // Methods
         public void Jeter()
         {

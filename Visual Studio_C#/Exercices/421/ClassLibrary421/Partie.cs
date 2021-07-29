@@ -12,28 +12,27 @@ namespace ClassLibraryJeu421
         // Attributs
         int nbMancheMax;
         int scoreMax;
-        
+
         Manche manche;
-        
+
         // Properties 
         public int NbMancheMax { get => nbMancheMax; set => nbMancheMax = value; }
         public int ScoreMax { get => scoreMax; set => scoreMax = value; }
-        
-       public Manche Manche { get => manche; set => manche = value; }
+        public Manche Manche { get => manche; set => manche = value; }
 
         // Constructors
         public Partie()
         {
             this.NbMancheMax = 10;
             this.ScoreMax = 100;
-            
+
             this.Manche = new Manche();
         }
 
         // Methods
         public string AfficherScore()
         {
-            return " Le score du " + this.Manche.Joueur1.Nom + " est de " + this.Manche.Joueur1.Score + 
+            return " Le score du " + this.Manche.Joueur1.Nom + " est de " + this.Manche.Joueur1.Score +
                 ". Le score du " + this.Manche.Joueur2.Nom + " est de " + this.Manche.Joueur2.Score;
         }
 

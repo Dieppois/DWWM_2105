@@ -43,9 +43,9 @@ namespace ConsoleAppJeu421
 
                     for (int i = 0; i < result.Length; i++)
                     {
-                        if (result[i] == "1") un = false;
+                        if (result[i] == "1") quatre = false;
                         if (result[i] == "2") deux = false;
-                        if (result[i] == "3") quatre = false;
+                        if (result[i] == "3") un = false;
                     }
                     Console.WriteLine("--------------------\n" + compteurLance + "ièm Lancé : \n--------------------");
                     Console.WriteLine(manche.Relancer(un, deux, quatre));
@@ -65,29 +65,17 @@ namespace ConsoleAppJeu421
                     un = deux = quatre = false;
                     string answer = "Raté ! Relancez un ou plusieurs dé(s).\nEntrez le(s) numero(s) du(des) dé(s) a remplacer, séparés d'un espace (1 / 2 / 3) : ";
 
-                    if (manche.TabDes[2] == 4) quatre = true;
-                    else if (manche.TabDes[2] == 2 && manche.TabDes[1] != 2) quatre = true;
-                    else 
-                    {
-                        answer += "3 ";
-                        quatre = false;
-                    }
-
+                    if (manche.TabDes[0] == 4) quatre = true;
+                    else if (manche.TabDes[0] == 2 && manche.TabDes[1] != 2) quatre = true;
+                    else answer += "1 ";
+                        
                     if (manche.TabDes[1] == 2) deux = true;
-                    else if (manche.TabDes[1] == 4 && manche.TabDes[2] != 4) deux = true;
-                    else
-                    {
-                        answer += "2 ";
-                        deux = false;
-                    }
+                    else if (manche.TabDes[1] == 4 && manche.TabDes[0] != 4) deux = true;
+                    else answer += "2 ";
 
-                        if (manche.TabDes[0] == 1) un = true;
-                    else if ((manche.TabDes[0] == 2 && manche.TabDes[1] != 2) || (manche.TabDes[0] == 4 && manche.TabDes[2] != 4)) un = true;
-                    else
-                    {
-                        answer += "1";
-                        un = false;
-                    }
+                    if (manche.TabDes[2] == 1) un = true;
+                    else if ((manche.TabDes[2] == 2 && manche.TabDes[1] != 2) || (manche.TabDes[2] == 4 && manche.TabDes[2] != 4)) un = true;
+                    else answer += "3";
 
                     Console.WriteLine(answer);
                     Console.WriteLine("--------------------\n" + compteurLance + "ièm Lancé : \n--------------------");
@@ -103,7 +91,7 @@ namespace ConsoleAppJeu421
                     Console.WriteLine("Joueur 2 gagne. Vous avez perdue !");
                 else Console.WriteLine("Personne ne gagne !");
 
-                Console.WriteLine("--------------------\nLe jeu 421 est finis !\n--------------------");
+                Console.WriteLine("--------------------\nLe jeu 421 est terminé !\n--------------------");
                 Console.ReadLine();
             
         }
