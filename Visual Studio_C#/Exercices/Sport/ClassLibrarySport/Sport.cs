@@ -7,14 +7,19 @@ namespace ClassLibrarySport
     public class Sport
     {
         // Attributs
-        private string strNomSport;
-        private string strTypeSport;
+        public string strNomSport;
+        public string strTypeSport;
 
         // Properties 
-        public string StrNomSport { get => strNomSport; set => strNomSport = value; }
-        protected string StrTypeSport { get => strTypeSport; set => strTypeSport = value; }
+        protected string StrNomSport { get => strNomSport; set => strNomSport = value; }
+        private string StrTypeSport { get => strTypeSport; set => strTypeSport = value; }
 
         // Constructors
+        public Sport(string _strNomSport, string _strTypeSport)
+        {
+            this.strNomSport = _strNomSport;
+            this.strTypeSport = _strTypeSport;
+        }
         public Sport(string _strNomSport)
         {
             this.strNomSport = _strNomSport;

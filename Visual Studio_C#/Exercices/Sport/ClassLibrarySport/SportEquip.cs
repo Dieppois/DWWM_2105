@@ -38,5 +38,9 @@ namespace ClassLibrarySport
         {
             return base.ToString() + "\nLe nom des champions : " + this.strEquipChamp + "\nAux nombres de : " + this.nbPers;
         }
+        public string Gagne()
+        {
+            return "Le nom de l'équipe championne : " + this.strEquipChamp;
+        }
     }
 }

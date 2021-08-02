@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 // Package
 namespace ClassLibraryVehicules
+
 {
     // Class
-    public class Voiture 
+    public class Voiture : IComparable
     {
         // Attributs
         int numeroDeSerie;
         string marque;
         string modele;
         DateTime dateCirculation;
-        public static List<Voiture> tabVoiture = new List<Voiture>();
 
         // Properties 
         public int NumeroDeSerie { get => numeroDeSerie; }
@@ -27,14 +27,19 @@ namespace ClassLibraryVehicules
             this.marque = _Marque;
             this.modele = _Modele;
             this.dateCirculation = _DateTime;
-            tabVoiture.Add(this);
         }
 
         // Methods
         public override string ToString()
         {
             return "NumeroDeSerie : " + this.NumeroDeSerie + " || Marque : " + this.Marque + " || Modele : " 
-              + this.Modele + " || DateCirculation : " + this.DateCirculation.ToString("dd-MM-yyyy") + "\n";
+              + this.Modele + " || DateCirculation : " + this.DateCirculation.ToLongDateString() + "\n";
+        }
+
+        public int CompareTo(object _autreVoiture)
+        {
+            Voiture _autreTest = (Voiture)_autreVoiture;
+            return Marque.CompareTo(_autreTest.Marque);
         }
     }
 }
