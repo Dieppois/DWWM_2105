@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 // Package
 namespace ClassLibraryEmprunt
 {
@@ -11,13 +12,14 @@ namespace ClassLibraryEmprunt
         double tauxInteretMensuel; // ->  taux de l'interet annuel
         int nbrAnneeRbmt; // ->  le nombre d'annee de remboursement
         int nbMois; // ->  le nombre de mois de la période
+        // amortissementMois    ->  le montant de l'amortissement du capital pour le mois courant
 
         // Properties 
         public double CapitalEmprunte { get => capitalEmprunte; }
         public double TauxInteretAnnuel { get => tauxInteretAnnuel; }
         public double TauxInteretMensuel { get => tauxInteretMensuel; }
         public int NbrAnneeRbmt { get => nbrAnneeRbmt; }
-        public int NbMois { get => nbMois; }
+        public int NbMois { get => nbMois; set => nbMois = value; }
 
         // Constructors
         public Credit(double _capitalEmprunte, double _tauxInteretAnnuel, int _nbrAnneeRbmt)
@@ -28,7 +30,7 @@ namespace ClassLibraryEmprunt
             this.nbrAnneeRbmt = _nbrAnneeRbmt; //->  le nombre d'annee de remboursement
             this.nbMois = _nbrAnneeRbmt * 12; //->  le nombre de mois de la période
         }
-
+        
         // Methods
 
         //1) Réaliser la fonction qui renvoie la mensualité constante du prêt 
@@ -40,27 +42,98 @@ namespace ClassLibraryEmprunt
         //        tm = tmensuel = txannuel / 12
         //        a= K x tm/Q
         //        Q = (1 - (1 + tm)puissance-n)
-
         public double CalculMensualite()
         {
             double Q = (1 - Math.Pow((1 + this.TauxInteretMensuel), -this.NbMois));
-            return Math.Round((this.CapitalEmprunte * this.TauxInteretMensuel) / Q, 2);
+            return (this.CapitalEmprunte * this.TauxInteretMensuel) / Q;
         }
         public double CoutTotalCredit()
         {
-            return Math.Round((this.CalculMensualite() * this.NbMois - this.CapitalEmprunte), 2);
+            return (this.CalculMensualite() * this.NbMois - this.CapitalEmprunte);
         }
+
 
         //2) Réaliser une fonction qui renvoie et affiche le tableau d'amortissement du prêt :		
 
         //        Afficher le tableau d'amortissement mensuel du prêt en mode console.
         //        sur 5 colonnes
-        //        compteur numero mois//  part interet(1 décimal) // part capital(1decimal) //  capital restant(pas de décimal) du// mensualité (pas de décimal)  
+        //        compteur numero mois//  part interet(1 décimal) // part capital(1decimal) //
+        //        capital restant(pas de décimal) du// mensualité (pas de décimal)  
         //        Soit K(n) capital restant dû au mois n
         //        Quand n = 0  k(n) =Capital emprunté
         //        autrement k(n+1)=k(n)- part_Capital(n)
         //        part_Interet(n+1) = K(n)*tm
         //        part_Capital(n+1) = Mensualité- part Interet(n+1).
+        public DataTable AfficheTab()
+        {
+            // Créer DataTable
+            DataTable matable = new DataTable("ParentTable");
+            // Declarer les variable des objets DataColumn
+            DataColumn column;
 
+            // Colonne / Lignes "Compteur numero mois"
+
+            // Définir ColumnName et l'ajouter a la DataTable
+            column = new DataColumn();
+            column.DataType = typeof(int);
+            column.ColumnName = "Compteur numero mois";
+            // Options :
+            column.Caption = "ParentItem";
+            column.ReadOnly = false;
+            column.Unique = false;
+            column.AutoIncrement = false;
+            // Ajouter la Column a la DataColumnCollection
+            matable.Columns.Add(column);
+
+            // Créer une autre Column.
+            column = new DataColumn();
+            column.DataType = typeof(double);
+            column.ColumnName = "Part interet";
+            // Add the column to the table.
+            matable.Columns.Add(column);
+
+            // Créer une autre Column.
+            column = new DataColumn();
+            column.DataType = typeof(double);
+            column.ColumnName = "Part capital";
+            // Add the column to the table.
+            matable.Columns.Add(column);
+
+            double restantDu = this.CapitalEmprunte;
+            double part_Interet;
+            double part_Capital;
+            double mensualité = this.CalculMensualite();
+            // Créer une autre Column.
+            column = new DataColumn();
+            column.DataType = typeof(double);
+            column.ColumnName = "Capital restant";
+            // Add the column to the table.
+            matable.Columns.Add(column);
+
+            // Créer une autre Column.
+            column = new DataColumn();
+            column.DataType = typeof(double);
+            column.ColumnName = "Mensualité";
+            // Add the column to the table.
+            matable.Columns.Add(column);
+
+            // Ajouter les lignes de la Colonne 
+            // part_Interet(n+1) = K(n)*tm
+            for (int i = 0; i < this.NbMois; i++)
+            {
+                part_Interet = restantDu * this.tauxInteretMensuel;
+                part_Capital = mensualité - part_Interet;
+                restantDu -= part_Capital;
+                matable.Rows.Add(new Object[5] { i + 1, Math.Round(part_Interet,2),
+                Math.Round(part_Capital,2), Math.Round(restantDu,2), Math.Round(mensualité,2)});
+
+            }
+            return matable;
+        }
     }
 }
+
+
+
+
+

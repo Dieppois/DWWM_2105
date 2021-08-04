@@ -12,7 +12,6 @@ namespace ConsoleAppFraction
             Fraction f2 = new Fraction(121, 4);
             Fraction f3 = new Fraction(9, 9);
 
-
             // Console.WriteLine(f1.Puissance(2));
 
             // Donner une représentation textuel de toutes ses informations

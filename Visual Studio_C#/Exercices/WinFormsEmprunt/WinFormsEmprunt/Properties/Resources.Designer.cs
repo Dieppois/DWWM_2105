@@ -59,5 +59,15 @@ namespace WinFormsEmprunt.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dónde_invertir_en_2016_1024x423 {
+            get {
+                object obj = ResourceManager.GetObject("Dónde-invertir-en-2016-1024x423", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

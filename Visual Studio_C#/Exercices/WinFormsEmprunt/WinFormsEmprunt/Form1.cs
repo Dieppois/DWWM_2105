@@ -20,15 +20,17 @@ namespace WinFormsEmprunt
         {
             double capital = double.Parse(this.txtCapitalEmprunte.Text);
             double taux = double.Parse(this.txtTauxInteretAnnuel.Text);
-            int nbAnnee = Int32.Parse(this.txtNbrAnneeRbmt.Text);
-
-            //lblCapitalEmprunte = new System.Windows.Forms.Label();
-            //this.lblTauxInteretAnnuel = new System.Windows.Forms.Label();
-            //this.lblNbrAnneeRbmt = new System.Windows.Forms.Label();
-
+            int nbAnnee = int.Parse(this.txtNbrAnneeRbmt.Text);
+            
             Credit monCredit = new Credit(capital,taux,nbAnnee);
             double temp = monCredit.CalculMensualite();
-            this.txtMensualite.Text = temp.ToString();
-        }       
+            this.txtMensualite.Text = Math.Round(temp,2).ToString() + "€";
+            
+            this.txtInteret.Text = Math.Round(monCredit.NbMois * temp - capital,2).ToString();
+            dgv3.DataSource = monCredit.AfficheTab();
+
+        }
+
+        
     }   
 }

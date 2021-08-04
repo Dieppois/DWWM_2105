@@ -29,6 +29,9 @@ namespace WinFormsEmprunt
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCapitalEmprunte = new System.Windows.Forms.Label();
             this.lblTauxInteretAnnuel = new System.Windows.Forms.Label();
             this.lblNbrAnneeRbmt = new System.Windows.Forms.Label();
@@ -38,6 +41,10 @@ namespace WinFormsEmprunt
             this.buttonRun = new System.Windows.Forms.Button();
             this.txtMensualite = new System.Windows.Forms.TextBox();
             this.lblMensualite = new System.Windows.Forms.Label();
+            this.dgv3 = new System.Windows.Forms.DataGridView();
+            this.txtInteret = new System.Windows.Forms.TextBox();
+            this.lblInteret = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCapitalEmprunte
@@ -93,17 +100,19 @@ namespace WinFormsEmprunt
             this.buttonRun.BackColor = System.Drawing.Color.Red;
             this.buttonRun.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRun.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.buttonRun.Location = new System.Drawing.Point(198, 208);
+            this.buttonRun.Location = new System.Drawing.Point(260, 221);
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(212, 71);
             this.buttonRun.TabIndex = 8;
+            this.buttonRun.Tag = "";
             this.buttonRun.Text = "RUN";
             this.buttonRun.UseVisualStyleBackColor = false;
             this.buttonRun.Click += new System.EventHandler(this.ButtonRun_Click);
             // 
             // txtMensualite
             // 
-            this.txtMensualite.Location = new System.Drawing.Point(528, 237);
+            this.txtMensualite.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMensualite.Location = new System.Drawing.Point(602, 250);
             this.txtMensualite.Name = "txtMensualite";
             this.txtMensualite.Size = new System.Drawing.Size(100, 23);
             this.txtMensualite.TabIndex = 9;
@@ -111,20 +120,61 @@ namespace WinFormsEmprunt
             // lblMensualite
             // 
             this.lblMensualite.AutoSize = true;
-            this.lblMensualite.Location = new System.Drawing.Point(443, 240);
+            this.lblMensualite.Location = new System.Drawing.Point(522, 253);
             this.lblMensualite.Name = "lblMensualite";
             this.lblMensualite.Size = new System.Drawing.Size(74, 15);
             this.lblMensualite.TabIndex = 10;
             this.lblMensualite.Text = "Mensualite : ";
+            // 
+            // dgv3
+            // 
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgv3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv3.Location = new System.Drawing.Point(183, 328);
+            this.dgv3.Name = "dgv3";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv3.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgv3.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv3.RowTemplate.Height = 25;
+            this.dgv3.Size = new System.Drawing.Size(589, 277);
+            this.dgv3.TabIndex = 11;
+            // 
+            // txtInteret
+            // 
+            this.txtInteret.Location = new System.Drawing.Point(602, 207);
+            this.txtInteret.Name = "txtInteret";
+            this.txtInteret.Size = new System.Drawing.Size(100, 23);
+            this.txtInteret.TabIndex = 12;
+            // 
+            // lblInteret
+            // 
+            this.lblInteret.AutoSize = true;
+            this.lblInteret.Location = new System.Drawing.Point(522, 210);
+            this.lblInteret.Name = "lblInteret";
+            this.lblInteret.Size = new System.Drawing.Size(66, 15);
+            this.lblInteret.TabIndex = 13;
+            this.lblInteret.Text = "InteretTotal";
             // 
             // Emprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblMensualite);
-            this.Controls.Add(this.txtMensualite);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1000, 617);
+            this.Controls.Add(this.lblInteret);
+            this.Controls.Add(this.txtInteret);
+            this.Controls.Add(this.dgv3);
             this.Controls.Add(this.buttonRun);
             this.Controls.Add(this.txtNbrAnneeRbmt);
             this.Controls.Add(this.txtTauxInteretAnnuel);
@@ -132,14 +182,15 @@ namespace WinFormsEmprunt
             this.Controls.Add(this.lblNbrAnneeRbmt);
             this.Controls.Add(this.lblTauxInteretAnnuel);
             this.Controls.Add(this.lblCapitalEmprunte);
+            this.Controls.Add(this.txtMensualite);
+            this.Controls.Add(this.lblMensualite);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Name = "Emprunt";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Label lblCapitalEmprunte;
         private System.Windows.Forms.Label lblTauxInteretAnnuel;
@@ -150,5 +201,9 @@ namespace WinFormsEmprunt
         private System.Windows.Forms.Button buttonRun;
         private System.Windows.Forms.TextBox txtMensualite;
         private System.Windows.Forms.Label lblMensualite;
+        private System.Windows.Forms.DataGridView dgv3;
+        private System.Windows.Forms.TextBox txtInteret;
+        private System.Windows.Forms.Label lblInteret;
     }
+    #endregion
 }
