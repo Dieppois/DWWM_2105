@@ -30,7 +30,7 @@ namespace ClassLibraryEmprunt
             this.nbrAnneeRbmt = _nbrAnneeRbmt; //->  le nombre d'annee de remboursement
             this.nbMois = _nbrAnneeRbmt * 12; //->  le nombre de mois de la période
         }
-        
+
         // Methods
 
         //1) Réaliser la fonction qui renvoie la mensualité constante du prêt 
@@ -124,11 +124,11 @@ namespace ClassLibraryEmprunt
                 part_Interet = restantDu * this.tauxInteretMensuel;
                 part_Capital = mensualité - part_Interet;
                 restantDu -= part_Capital;
-                matable.Rows.Add(new Object[5] { i + 1, Math.Round(part_Interet,2),
-                Math.Round(part_Capital,2), Math.Round(restantDu,2), Math.Round(mensualité,2)});
 
+                matable.Rows.Add(i + 1, Math.Round(part_Interet, 2), Math.Round(part_Capital, 2),
+                Math.Round(restantDu, 2), Math.Round(mensualité, 2));
             }
-            return matable;
+                return matable;
         }
     }
 }

@@ -44,6 +44,7 @@ namespace WinFormsEmprunt
             this.dgv3 = new System.Windows.Forms.DataGridView();
             this.txtInteret = new System.Windows.Forms.TextBox();
             this.lblInteret = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +166,16 @@ namespace WinFormsEmprunt
             this.lblInteret.TabIndex = 13;
             this.lblInteret.Text = "InteretTotal";
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(560, 50);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 94);
+            this.listBox1.TabIndex = 14;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.Onverra);
+            // 
             // Emprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -172,6 +183,7 @@ namespace WinFormsEmprunt
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1000, 617);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblInteret);
             this.Controls.Add(this.txtInteret);
             this.Controls.Add(this.dgv3);
@@ -204,6 +216,7 @@ namespace WinFormsEmprunt
         private System.Windows.Forms.DataGridView dgv3;
         private System.Windows.Forms.TextBox txtInteret;
         private System.Windows.Forms.Label lblInteret;
+        private System.Windows.Forms.ListBox listBox1;
     }
     #endregion
 }
