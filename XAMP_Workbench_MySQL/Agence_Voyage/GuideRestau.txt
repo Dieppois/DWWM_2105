@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>Document</title>
+</head>
+
+<body>
+
+<?php
+
+session_start();
+spl_autoload_register(function ($class) {
+    include "models/" . $class . ".php";
+});
+
+$objrestaurant = new mytable("restaurants");
+
+if(isset($_GET["supprimer"]) && !empty($_GET["supprimer"]))
+{
+    echo $objrestaurant->effacerTuple($_GET["supprimer"]);
+}
+$objrestaurant2 = new myTable("restaurants");
+
+echo $objrestaurant2->rendre_Html();
+?>
+
+
+</body>
+</html>

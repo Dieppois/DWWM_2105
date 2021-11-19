@@ -1,0 +1,96 @@
+<?php
+
+class mytable
+
+{
+    // CRUD : Create Read Update Delete
+    public $connexion;
+    private $statement;
+    private $table;
+
+    // Public $tabcols;
+    public function __construct(string $_table)
+    {
+        $this->connexion = self::dbconnection();
+        $this->statement = $this->connexion->prepare("select * from " . $_table);
+        $this->connexion->exec("SET NAMES 'UTF8'");
+        $this->connexion->exec("SET CHARACTER SET 'UTF8'");
+        // $this->table=$_table;
+        // $sql= "SELECT * FROM ".$this->table;
+        $this->statement->execute();
+    }
+
+    // Function static de creation d'une connection a la base de donnees.
+    // Utilisable pour obtenir une connection à l'intérieur et à l'exterieur de la classe si besoin.
+    public static function dbconnection()
+    {
+        try {
+            $connexion = new PDO('mysql:host=localhost;dbname=creation_restaurant', 'root', '', array(
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_CASE => PDO::CASE_NATURAL,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_NUM,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+            ));
+            // Connection à la base
+            // $connexion->exec("SET CHARACTER SET utf8");
+
+
+            return $connexion;
+        } catch (PDOException $e) {
+
+            return  "erreur connexion" . $e->getMessage();
+        }
+    }
+
+    public function afficherTable()
+    {
+        $chaine =  "<caption class='table'>Liste des restaurants avec notations</caption><table class='table table-warning table hover table-bordered'><thead style='background-color:#ccccdd;color:black'>";
+        //<table class = 'table table-warning table-hover'><thead style='background-color:#ccccdd;color:black'></thead>;
+        
+        $chaine .= "<tr>";
+        $nomCol = $this->recupTabTableauColumns();
+        
+        for ($i=0; $i < count($nomCol) ; $i++) { 
+            $chaine .= "<th>".$nomCol[$i]."</th>";
+        }
+        $chaine .="</tr></thead>";
+       
+       $chaine.="<tbody style='background-color:#5D0FBD;' >";
+        while ($row = $this->statement->fetch()) {
+            $chaine .= "<tr>";
+
+            for ($i = 0; $i < count($row); $i++) {
+                $chaine .= "<td>" . $row[$i] . "</td>";
+            }
+
+            $chaine .= "</tr>";
+        }
+        $chaine.="</tbody>";
+        $chaine .= "</table>";
+
+        return $chaine;
+    }
+
+
+    private function recupTabTableauColumns()
+    {
+        $nomcols = [];
+        for ($i = 0; $i < $this->statement->columnCount(); $i++) {
+            $res = $this->statement->getColumnMeta($i);
+            array_push($nomcols, $res["name"]);
+        }
+       /* $chaine =  "<table class='table table-warning table hover table-bordered'><thead style='background-color:#ccccdd;color:black'>";
+       
+
+            for ($i = 0; $i < $this->statement->columnCount(); $i++) {
+                $chaine .= "<td>" . $nomcols[$i] . "</td>";
+            }
+
+            $chaine .= "</tr>";
+        
+        $chaine .= "</table>";*/
+        return $nomcols;
+    
+    }
+    
+}
