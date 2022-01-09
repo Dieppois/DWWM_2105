@@ -35,14 +35,12 @@ function genererTableau(data) {
   }
 }
 
-
-
-function genererPersonnage(data, max){
+function genererPersonnage(data, max) {
   if (max >= 1 && max < data.length) {
     var personnage = data[max];
-  var afficherPersonnage = document.createElement("div");
-  afficherPersonnage.setAttribute("class", "carte");
-  afficherPersonnage.innerHTML =
+    var afficherPersonnage = document.createElement("div");
+    afficherPersonnage.setAttribute("class", "carte");
+    afficherPersonnage.innerHTML =
       '<div class="haut"><table><tr><td width=33% rowspan=2 class="levelPerso">' +
       personnage.level +
       '</td><td class="nomPerso">' +
@@ -67,7 +65,8 @@ function genererPersonnage(data, max){
       personnage.id +
       "</div>";
     document.getElementById("afficherCarte").appendChild(afficherPersonnage);
-}}
+  }
+}
 
 /* All fonction calculer maximum*/
 function maxPower(_data) {
@@ -117,29 +116,29 @@ function maxVictory(_data) {
 
 /* Lancer json */
 function jsonThingy() {
+  //On crée un objet XMLHttpRequest
+  let xhr = new XMLHttpRequest();
 
-//On crée un objet XMLHttpRequest
-let xhr = new XMLHttpRequest();
+  //On initialise notre requête avec open()
+  xhr.open("GET", "../exo_ajax_jeux/jeux_de_roles.json");
 
-//On initialise notre requête avec open()
-xhr.open("GET", "../exo_ajax_jeux/jeux_de_roles.json");
+  //On veut une réponse au format JSON
+  xhr.responseType = "json";
 
-//On veut une réponse au format JSON
-xhr.responseType = "json";
+  //On envoie la requête
+  xhr.send();
 
-//On envoie la requête
-xhr.send();
-
-//Dès que la réponse est reçue...
-xhr.onload = function () {
-  //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
-  if (this.status == 200) {
-    data = xhr.response;
-    genererTableau(data);
-    genererPersonnage(data, maxPower(data));
-    // genererPersonnage(data, maxArmor(data));
-    // genererPersonnage(data, maxPlayed(data));
-    // genererPersonnage(data, maxVictory(data));
-  }
-};};
+  //Dès que la réponse est reçue...
+  xhr.onload = function () {
+    //Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
+    if (this.status == 200) {
+      data = xhr.response;
+      genererTableau(data);
+      genererPersonnage(data, maxPower(data));
+      // genererPersonnage(data, maxArmor(data));
+      // genererPersonnage(data, maxPlayed(data));
+      // genererPersonnage(data, maxVictory(data));
+    }
+  };
+}
 jsonThingy();
