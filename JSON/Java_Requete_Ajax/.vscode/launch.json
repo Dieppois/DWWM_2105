@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:80/Main_Folder/Java_Requete_Ajax",
+            "url": "http://localhost:80/DWWM_JimmyDieppois/JSON/Java_Requete_Ajax",
             "webRoot": "${workspaceFolder}",
             "userDataDir": false 
         }
