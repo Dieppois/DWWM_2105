@@ -13,6 +13,12 @@
 </head>
 
 <body>
+	
+
+	<main id="boxes">
+
+
+	<div class="Personnage" id="Personnage"></div>	
 
 	<!-- Tableau debut -->
 	<table id="Table" class="Table">
@@ -32,9 +38,19 @@
 			<th>draw</th>
 		</tr>
 	</table>
+	
+	</main>
 	<!-- Tableau fin -->
-
-	<div class="cartesAfficher" id="afficherCarte"></div>
+	<br>
+	<form id="form">
+ 
+	<input type="text" placeholder="Who's the player with the..." readonly="true">
+  <input type="button" id="power" value="Best power" />
+  <input type="button" id="played" value="Most Games Played" />
+  <input type="button" id="armor" value="Best armor" />
+  <input type="button" id="victory" value="Most Victories" />
+  <input type="submit" id="reset" value="Dont push">
+</form>
 
 </body>
 
